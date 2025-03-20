@@ -1,0 +1,98 @@
+/* Navigation White Text Styles - DESKTOP ONLY */
+
+/* Apply the white navigation styles only for desktop screens */
+@media screen and (min-width: 992px) {
+  /* Default white text for all navigation elements */
+  .navbar-logo-left-container {
+    color: white !important;
+  }
+  
+  /* Navigation links (Home, Services, About Us, etc.) */
+  .navbar-wrapper .text-block-2 {
+    color: white !important;
+    transition: color 0.3s ease;
+    font-size: 15px !important; /* Smaller font size for navigation text */
+    white-space: nowrap !important; /* Keep text on one line */
+  }
+  
+  /* Navigation links hover effect - turn blue */
+  .navbar-wrapper a:hover .text-block-2 {
+    color: #1e5ef3 !important; /* Using the blue color from the site */
+  }
+  
+  /* Keep Blessed Labs text white always */
+  .nav-logo .paragraph-lg {
+    color: white !important;
+    font-size: 18px !important; /* Increased from 16px to 18px */
+  }
+  
+  /* Make sure the "Blessed Labs" text stays white even on hover */
+  .nav-left:hover .paragraph-lg,
+  .navbar-wrapper a:hover .paragraph-lg {
+    color: white !important;
+  }
+  
+  /* Restore logo visibility - DO NOT filter the logo */
+  .navbar-brand .image-2 {
+    /* Removed filter: brightness(10) to restore logo visibility */
+  }
+  
+  /* Better space the navigation links */
+  .navbar-wrapper > div {
+    margin-right: 15px; /* Increase spacing between nav items */
+  }
+  
+  /* Specific margin adjustment for Contact link */
+  .navbar-wrapper .link-block:last-of-type {
+    margin-right: 40px; /* Add more space after Contact link */
+  }
+  
+  /* Update container layout */
+  .navbar-wrapper.logo {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+  }
+  
+  /* Keep multi-word nav items on one line */
+  .link-block-4 .text-block-2,
+  .link-block-3 .text-block-2,
+  .link-block .text-block-2 {
+    white-space: nowrap !important;
+    display: inline-block !important;
+  }
+}
+
+/* Don't apply filter to mobile menu button to preserve its original look */
+@media screen and (max-width: 991px) {
+  /* Mobile menu button remains untouched to preserve mobile navigation appearance */
+  /* This ensures the mobile navigation stays professional and incredibly looking */
+}
+
+/* Additional mobile-specific styling for navbar height */
+@media screen and (max-width: 991px) {
+  .navbar-logo-left-container {
+    min-height: 60px !important;
+    padding: 10px 0 !important;
+  }
+  
+  /* Ensure logo and text are vertically centered */
+  .navbar-brand, .nav-left, .nav-logo {
+    display: flex !important;
+    align-items: center !important;
+  }
+  
+  /* Set a consistent height for the navbar wrapper */
+  .navbar-wrapper {
+    height: 60px !important;
+    min-height: 60px !important;
+    display: flex !important;
+    align-items: center !important;
+  }
+}
+
+/* Shared styles regardless of screen size */
+.button-primary.w-button {
+  /* Preserve the original styling of the Work with Us button */
+  transition: background-color 0.3s ease;
+} 

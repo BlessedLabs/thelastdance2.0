@@ -1,0 +1,14 @@
+/* Reduce spacing between Contact section and Footer on mobile */
+
+/* Only target mobile devices */
+@media (max-width: 768px) {
+  /* Reduce bottom padding on Contact section */
+  #Contact.section {
+    padding-bottom: 5px !important; /* Reduced from 20px to 5px */
+  }
+  
+  /* Reduce top padding on footer */
+  .footer-container {
+    padding-top: 5px !important; /* Reduced from 20px to 5px */
+  }
+} 

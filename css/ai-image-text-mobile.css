@@ -1,0 +1,33 @@
+/* Mobile-only AI Image Generator Text Sizing
+   This CSS specifically targets the AI Image Generator title on mobile devices,
+   increasing its vertical size while maintaining horizontal width */
+
+/* Only apply these styles on mobile devices */
+@media screen and (max-width: 767px) {
+  /* Apply custom styling to the text within the AI Image Generator section */
+  #root h1 span:not(.absolute) {
+    /* Use a combination of techniques to achieve vertical expansion without horizontal growth */
+    transform: scaleY(1.15) !important; /* Vertical stretch only */
+    transform-origin: center !important;
+    font-weight: 700 !important; /* Heavier font weight */
+    line-height: 1.2 !important; /* Increased line height for vertical expansion */
+    letter-spacing: -0.02em !important; /* Slightly tighter letter spacing to maintain width */
+  }
+  
+  /* Target the "AI" text specifically if it's in a separate element */
+  #root h1 span:not(.absolute) strong,
+  #root h1 span:not(.absolute) b,
+  #root h1 span:not(.absolute) [class*="font-bold"] {
+    font-size: 1.1em !important; /* Make "AI" slightly larger */
+    font-weight: 800 !important; /* Extra bold */
+    display: inline-block !important;
+    transform: scaleY(1.2) !important; /* Additional vertical stretch */
+    transform-origin: center !important;
+  }
+  
+  /* Ensure sparkle positioning adjusts to the new text size */
+  #root span.absolute.blur-lg,
+  #root div > span.absolute.blur-lg {
+    top: -5rem !important; /* Adjust sparkle position with the taller text */
+  }
+} 

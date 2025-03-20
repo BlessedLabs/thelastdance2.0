@@ -1,0 +1,22 @@
+/* Adjust spacing for Book A Video Call section on mobile */
+
+/* Only apply these changes on mobile devices */
+@media screen and (max-width: 767px) {
+  /* Target the contact list items to reduce spacing */
+  .flex-horizontal.flex-vertical li:first-child {
+    position: relative;
+    bottom: 40px; /* Move the element up to reduce gap */
+    margin-top: -20px; /* Further reduce space at the top */
+  }
+  
+  /* Also adjust other list items to maintain consistent spacing */
+  .flex-horizontal.flex-vertical li:not(:first-child) {
+    position: relative;
+    bottom: 30px; /* Move up slightly less than the first item */
+  }
+  
+  /* Ensure container adjusts properly */
+  .contact-grid-layout {
+    gap: 15px !important; /* Reduce gap between grid items */
+  }
+} 

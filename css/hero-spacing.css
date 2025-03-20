@@ -1,0 +1,45 @@
+/* Adjust spacing between navigation and hero section */
+
+/* Remove excess space at the top of the hero section */
+header.section {
+  margin-top: -30px; /* Pull the hero section up closer to nav */
+}
+
+/* Adjust the padding at the top of the container in the hero section */
+#Home.container.full-width-container {
+  padding-top: 1.5rem !important; /* Reduced from 4rem to 1.5rem */
+}
+
+/* Move the text content up closer to the navigation */
+#w-node-_3ac29114-46a2-7ee9-261c-e51a702dd20e-702dd20a {
+  margin-top: -20px !important; /* Shift text content up */
+}
+
+/* Adjust minimum height to prevent excessive spacing */
+.grid-layout.desktop-1-column.utility-min-height-100dvh {
+  min-height: 90vh !important; /* Reduce from 100dvh to 90vh */
+}
+
+/* Make sure the background images stay in position */
+.ix-move-parallax-target-1 {
+  position: relative;
+}
+
+/* Ensure this adjustment works well on mobile too */
+@media screen and (max-width: 767px) {
+  header.section {
+    margin-top: -15px; /* Less aggressive adjustment for mobile */
+  }
+  
+  #Home.container.full-width-container {
+    padding-top: 1rem !important; /* Even less padding on mobile */
+  }
+  
+  #w-node-_3ac29114-46a2-7ee9-261c-e51a702dd20e-702dd20a {
+    margin-top: -10px !important; /* Less shift on mobile */
+  }
+  
+  .grid-layout.desktop-1-column.utility-min-height-100dvh {
+    min-height: 85vh !important; /* Further reduced height on mobile */
+  }
+} 

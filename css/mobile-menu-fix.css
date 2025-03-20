@@ -1,0 +1,422 @@
+/* Mobile Menu Fixes - Make mobile menu black background with improved styling */
+
+/* Style the menu overlay background */
+.w-nav-overlay {
+  background-color: rgba(0, 0, 0, 0.95) !important; /* More opaque black overlay */
+  backdrop-filter: blur(5px) !important; /* Blur background for modern look */
+  display: none !important; /* Hide by default */
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  z-index: 2998 !important; /* Higher z-index to ensure visibility */
+  opacity: 0 !important;
+  transition: opacity 0.3s ease-in-out !important;
+}
+
+/* Make overlay visible when menu is open */
+.w-nav-overlay.w--open {
+  display: block !important;
+  opacity: 1 !important;
+}
+
+/* Style the mobile menu container */
+.w-nav-overlay [data-nav-menu-open],
+.w-nav-overlay .w-nav-menu,
+.w-nav-menu {
+  background-color: #000 !important;
+  color: white !important;
+  max-width: 100% !important; /* Full width on mobile */
+  width: 100% !important; /* Control width responsively */
+  position: fixed !important;
+  top: 60px !important; /* Position below navbar */
+  right: 0 !important;
+  left: 0 !important; /* Full width positioning */
+  height: auto !important; /* Auto height based on content */
+  max-height: calc(100vh - 60px) !important; /* Max height to prevent overflow */
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding: 20px 0 !important; /* Add some vertical padding */
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5) !important; /* Add shadow */
+  overflow-y: auto !important; /* Add scrolling */
+  transform: translateY(-100%) !important; /* Start above viewport */
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out !important;
+  opacity: 0 !important;
+  z-index: 2999 !important; /* Higher z-index to ensure visibility */
+}
+
+/* Open state for mobile menu */
+.w-nav-menu.w--open {
+  transform: translateY(0) !important; /* Slide in from top */
+  opacity: 1 !important;
+  display: block !important;
+  visibility: visible !important;
+  pointer-events: auto !important; /* Ensure clicks are registered */
+}
+
+/* Style for mobile navigation links - IMPROVED VISIBILITY */
+.mobile-nav-link {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  padding: 20px 30px !important;
+  color: white !important;
+  font-size: 22px !important;
+  font-weight: 500 !important;
+  text-decoration: none !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+  position: relative !important;
+  transition: all 0.2s ease !important;
+  z-index: 3000 !important; /* Ensure links are clickable */
+  pointer-events: auto !important; /* Make sure clicks register */
+}
+
+/* Style for dropdown arrows */
+.dropdown-arrow {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+/* Style for navigation text */
+.nav-link-text {
+  color: white !important;
+  font-family: "Inter", sans-serif !important;
+}
+
+/* Special styling for Pixel Playground text */
+.pixel-playground-text {
+  background: linear-gradient(-45deg, #3f6eff, #4a00e0, #00d4ff, #2e5ef3) !important;
+  background-size: 200% auto !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  color: transparent !important;
+  animation: gradient 6s ease-in-out infinite !important;
+  font-weight: 500 !important;
+}
+
+/* Gradient animation for Pixel Playground text */
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  25% { background-position: 50% 25%; }
+  50% { background-position: 100% 50%; }
+  75% { background-position: 50% 75%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Hover effect for mobile links */
+.mobile-nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+/* Ensure all menu items are visible when menu is open */
+.w-nav-menu.w--open a,
+.w-nav-menu.w--open .mobile-nav-link {
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  position: relative !important;
+  z-index: 2000 !important;
+}
+
+/* Style the mobile menu items */
+.w-nav-menu .nav-menu-two {
+  background-color: transparent !important; /* Keep background transparent */
+  padding: 0 !important;
+  margin: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0 !important; /* No gap between items */
+}
+
+/* Mobile menu links - Styling to match reference photo */
+.w-nav-menu a,
+.w-nav-overlay [data-nav-menu-open] a {
+  color: white !important;
+  padding: 20px 25px !important; /* More padding for tap targets */
+  display: block !important;
+  border-radius: 0 !important; /* No border radius */
+  transition: all 0.2s ease !important;
+  text-align: left !important; /* Left-align text */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important; /* Subtle separator */
+  font-size: 18px !important; /* Larger font size */
+  font-weight: 500 !important;
+  letter-spacing: 0.5px !important;
+  text-decoration: none !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+/* Display all text inside navigation links properly */
+.w-nav-menu a .text-block-2,
+.w-nav-menu a div,
+.w-nav-menu a span {
+  display: inline-block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  color: white !important;
+}
+
+/* Hover/active state for mobile links */
+.w-nav-menu a:hover,
+.w-nav-overlay [data-nav-menu-open] a:hover,
+.w-nav-menu a:active,
+.w-nav-overlay [data-nav-menu-open] a:active {
+  color: #1e5ef3 !important; /* Blue color on hover/active */
+  background-color: rgba(255, 255, 255, 0.05) !important;
+  transform: translateX(5px) !important; /* Subtle slide effect */
+}
+
+/* Handle child elements of nav links */
+.w-nav-menu a *,
+.w-nav-overlay [data-nav-menu-open] a * {
+  color: inherit !important;
+  font-size: inherit !important;
+}
+
+/* Target Pixel Playground specifically */
+.w-nav-overlay [data-nav-menu-open] a[href="#ImageGenerator"] .text-block-2,
+.w-nav-menu a[href="#ImageGenerator"] .text-block-2 {
+  background: linear-gradient(-45deg, #1e5ef3, #4a00e0, #00d4ff, #1e5ef3);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent !important;
+  animation: gradient 6s ease-in-out infinite;
+}
+
+/* Target nav menu when it's open on mobile */
+.w-nav[data-collapse="medium"] .w-nav-menu.w--open {
+  background-color: #000 !important;
+  border: none !important;
+  display: block !important;
+}
+
+/* Make sure content on black background is visible */
+.nav-menu-wrapper li,
+.nav-menu-wrapper a,
+.w-nav-menu [data-nav-menu-open] * {
+  color: white !important;
+}
+
+/* Close button for menu */
+.w-nav-button.w--open {
+  position: absolute !important;
+  top: 50% !important;
+  right: 15px !important;
+  transform: translateY(-50%) !important;
+  z-index: 2001 !important;
+  background-color: transparent !important;
+}
+
+/* Animation for slide down menu */
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Add "Talk to Expert" button in mobile menu */
+.mobile-cta-button {
+  margin: 30px 30px !important;
+  display: block !important;
+  background-color: #1e5ef3 !important; /* Changed from #009688 to #1e5ef3 to match desktop blue */
+  color: white !important;
+  padding: 15px 20px !important;
+  text-align: center !important;
+  border-radius: 100px !important;
+  font-weight: 600 !important;
+  font-size: 16px !important;
+  letter-spacing: 0.5px !important;
+  text-decoration: none !important;
+  box-shadow: 0 4px 10px rgba(30, 94, 243, 0.3) !important; /* Updated shadow color to match new blue */
+}
+
+/* Fix for horizontal scrolling on mobile devices */
+@media screen and (max-width: 991px) {
+  /* Fix mobile menu visibility */
+  .w-nav-menu {
+    display: none !important;
+  }
+
+  .w-nav-menu.w--open {
+    display: block !important;
+  }
+  
+  /* Prevent horizontal overflow on all elements */
+  html, body {
+    overflow-x: hidden !important;
+    position: relative !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  
+  /* ===== NORMAL SCROLLING NAVIGATION BAR ON MOBILE ===== */
+  /* Change from fixed to relative position to allow normal scrolling with page */
+  .navbar-logo-left-container {
+    width: 100% !important;
+    max-width: 100% !important;
+    left: 0 !important;
+    right: 0 !important;
+    min-height: 60px !important;
+    position: relative !important; /* Changed from fixed to relative */
+    top: 0 !important;
+    z-index: 1000 !important; 
+    background-color: #04060f !important; /* Ensure background is solid */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3) !important; /* Add shadow for depth */
+    padding-top: 0 !important; /* Remove any top padding */
+    margin-top: 0 !important; /* Remove any top margin */
+  }
+  
+  /* Remove padding from body since navbar is no longer fixed */
+  body {
+    padding-top: 0 !important; /* Changed from 60px to 0 */
+  }
+  
+  /* Ensure all containers fit within viewport */
+  .container, 
+  .container.full-width-container, 
+  .container.small-container,
+  section,
+  header,
+  footer {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+    overflow-x: hidden !important;
+  }
+  
+  /* Fix for grid layouts that might be causing overflow */
+  .grid-layout,
+  .w-layout-grid {
+    grid-template-columns: 1fr !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    overflow: hidden !important;
+  }
+  
+  /* Make all images responsive */
+  img {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+  
+  /* Fix for flex containers */
+  .flex-horizontal,
+  .flex-vertical {
+    width: 100% !important;
+    max-width: 100% !important;
+    flex-wrap: wrap !important;
+  }
+  
+  /* FIXED: Hamburger menu positioning for proper visibility */
+  .menu-button, .w-nav-button {
+    position: absolute !important;
+    right: 15px !important; /* Changed from 45px to 15px to move much further right */
+    top: 50% !important; /* Center vertically in navbar */
+    transform: translateY(-50%) !important; /* Proper vertical centering */
+    width: 44px !important;
+    height: 44px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    z-index: 2000 !important;
+    border-radius: 4px !important;
+    background-color: transparent !important;
+    cursor: pointer !important;
+    margin: 0 !important;
+    padding: 10px !important;
+    border: none !important;
+    transition: background-color 0.3s ease !important;
+  }
+  
+  /* Make hamburger icon more visible */
+  .menu-button .w-icon-nav-menu {
+    display: block !important;
+    width: 24px !important;
+    height: 20px !important;
+    position: relative !important;
+  }
+  
+  /* Re-implement the hamburger icon with proper spacing */
+  .menu-button:after, .w-nav-button:after {
+    content: "☰" !important;
+    font-size: 24px !important;
+    color: white !important;
+    display: block !important;
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    line-height: 1 !important; /* Fix line height */
+  }
+  
+  /* Change icon when menu is open */
+  .menu-button.w--open:after, .w-nav-button.w--open:after {
+    content: "✕" !important;
+  }
+  
+  /* Hide original Webflow icon */
+  .w-icon-nav-menu {
+    display: none !important;
+  }
+  
+  /* Ensure navbar wrapper doesn't crop menu button */
+  .navbar-wrapper {
+    position: relative !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    padding-right: 60px !important; /* Space for menu button */
+    overflow: visible !important; /* Prevent clipping */
+  }
+  
+  /* Make sure link blocks are hidden on mobile */
+  .navbar-wrapper > div:not(.nav-left):not(:last-child) {
+    display: none !important;
+  }
+  
+  /* Position the Talk to Expert button in the dropdown */
+  .mobile-cta-container {
+    margin-top: 15px !important;
+  }
+} 
+
+/* Smallest screen fixes */
+@media screen and (max-width: 479px) {
+  /* Further optimize container padding for very small screens */
+  .container {
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+  }
+  
+  /* Ensure service section cards fit properly */
+  #Services .grid-layout > div {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+  
+  /* Fix for any extra margins on small screens */
+  [class*="utility-margin-left"],
+  [class*="utility-margin-right"] {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+  
+  /* Slightly decrease padding on smallest screens */
+  .w-nav-menu a, 
+  .w-nav-overlay [data-nav-menu-open] a {
+    padding: 16px 20px !important;
+  }
+} 

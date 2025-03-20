@@ -1,0 +1,20 @@
+/* Adjust spacing between sections */
+
+/* Reduce space between hero and About Us section */
+#AboutUs.section {
+  margin-top: -60px; /* Increased from -40px to -60px to move section up */
+  padding-top: 40px; /* Maintain internal padding */
+}
+
+/* Make sure elements within About Us section maintain their spacing */
+#AboutUs .container {
+  padding-top: 10px; /* Maintain reduced internal padding */
+}
+
+/* Adjust spacing for mobile devices */
+@media screen and (max-width: 767px) {
+  #AboutUs.section {
+    margin-top: -40px; /* Slightly increased from -30px to -40px for mobile */
+    padding-top: 30px;
+  }
+} 

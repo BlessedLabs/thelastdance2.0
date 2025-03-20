@@ -1,0 +1,224 @@
+/* DESKTOP-ONLY NAVIGATION ENHANCEMENTS
+ * This file contains styles that ONLY affect desktop navigation (min-width: 769px)
+ * Mobile navigation styles remain completely untouched
+ */
+
+@media screen and (min-width: 769px) {
+  /* ===== CONTAINER STYLING ===== */
+  /* Improved container spacing and alignment */
+  .navbar-logo-left-container {
+    padding: 12px 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    background-color: #04060f;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  /* Container for better spacing */
+  .navbar-logo-left-container .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  /* ===== NAVIGATION LAYOUT ===== */
+  /* Main navigation wrapper */
+  .navbar-wrapper {
+    align-items: center;
+    height: 70px;
+    justify-content: space-between;
+    display: flex;
+  }
+  
+  /* Better spacing between navigation items */
+  .navbar-wrapper > div {
+    margin: 0 15px;
+  }
+  
+  /* First navigation item should have less left margin */
+  .navbar-wrapper > div:nth-of-type(3) {
+    margin-left: 10px;
+  }
+  
+  /* Last navigation item should have more right margin before button */
+  .navbar-wrapper > div:last-of-type {
+    margin-right: 25px;
+  }
+  
+  /* ===== LOGO STYLING ===== */
+  /* Logo and brand styling - FIX: Bring logo and text closer together */
+  .navbar-brand {
+    margin-right: 0;
+    cursor: default; /* Ensure cursor remains as default arrow, not a pointer */
+  }
+  
+  .nav-logo {
+    margin-right: 28.5px; /* Now reduced gap by exactly 5% from original 30px */
+    margin-left: -5px; /* Pull text closer to logo */
+    cursor: default; /* Ensure cursor remains as default arrow, not a pointer */
+  }
+  
+  /* Company name styling */
+  .paragraph-lg {
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    color: #ffffff;
+    margin-left: -10px; /* Move text 10% closer to the logo */
+  }
+  
+  /* ===== NAVIGATION LINKS ===== */
+  /* Ensure navigation is level and properly aligned */
+  .navbar-wrapper .link-block-2,
+  .navbar-wrapper .link-block-3,
+  .navbar-wrapper .link-block-4,
+  .navbar-wrapper .link-block {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    position: relative;
+  }
+  
+  /* Consistent text styling for navigation items */
+  .text-block-2 {
+    font-size: 16px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    padding: 8px 0;
+    color: #ffffff;
+  }
+  
+  /* FIX: Disable hover effect for all navigation links */
+  .link-block-2:hover .text-block-2,
+  .link-block-3:hover .text-block-2,
+  .link-block-4:hover .text-block-2,
+  .link-block:hover .text-block-2 {
+    color: inherit; /* Use inherited color instead of blue */
+  }
+  
+  /* FIX: Remove all underline effects on hover */
+  .navbar-wrapper .link-block-2::after,
+  .navbar-wrapper .link-block-3::after,
+  .navbar-wrapper .link-block-4::after,
+  .navbar-wrapper .link-block::after {
+    display: none; /* Remove underline completely */
+  }
+  
+  /* FIX: Remove existing blue underline under Home */
+  .navbar-wrapper .link-block-2 {
+    text-decoration: none;
+    border-bottom: none;
+  }
+  
+  /* FIX: Make Home link non-clickable by styling it differently */
+  .navbar-wrapper .link-block-2 {
+    cursor: default;
+    pointer-events: none; /* Prevents clicking */
+  }
+  
+  /* ===== WORK WITH US BUTTON ===== */
+  /* Properly align the Work With Us button */
+  .nav-menu-wrapper {
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+    height: 100%;
+  }
+  
+  /* Style the Work With Us button - UPDATED to pill shape */
+  .button-primary {
+    padding: 10px 20px;
+    border-radius: 50px; /* Pill shape */
+    transition: all 0.3s ease;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    box-shadow: 0 2px 10px rgba(0, 128, 255, 0.2);
+    background-color: #0080ff; /* Updated to match the requested blue color */
+    color: white; /* Ensure text is white */
+    text-align: center;
+    min-width: auto; /* Remove fixed width constraint */
+    width: auto; /* Allow button to size to content */
+  }
+  
+  /* Button hover effect */
+  .button-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 128, 255, 0.3);
+    background-color: #0066cc; /* Slightly darker on hover */
+  }
+  
+  /* FIX: Ensure proper vertical alignment of all navigation elements */
+  .navbar-wrapper {
+    display: flex;
+    align-items: center;
+  }
+  
+  /* FIX: Ensure proper spacing between all elements */
+  .navbar-wrapper > div {
+    margin: 0 15px; /* More consistent spacing */
+  }
+  
+  /* FIX: Ensure WORK WITH US button is properly aligned */
+  .nav-menu-wrapper {
+    display: flex;
+    align-items: center;
+    height: 100%;
+  }
+  
+  .mobile-margin-top-10 {
+    margin-top: 0; /* Remove any top margin on desktop */
+  }
+  
+  /* Ensure text is properly visible on dark background */
+  .text-block-2 {
+    color: #ffffff;
+  }
+  
+  /* Ensure logo text is properly visible */
+  .paragraph-lg {
+    color: #ffffff;
+  }
+  
+  /* FIX: Ensure logo image is properly sized and aligned */
+  .image-2 {
+    vertical-align: middle;
+    max-height: 55px;
+  }
+  
+  /* FIX: Ensure the navbar has proper vertical padding */
+  .navbar-wrapper.logo {
+    padding: 10px 0;
+  }
+  
+  /* FIX: Remove any unwanted borders or outlines */
+  .navbar-wrapper a, 
+  .navbar-wrapper span {
+    outline: none;
+    text-decoration: none;
+  }
+} 
+
+/* Phone icon styling - applies to both desktop and mobile */
+.phone-icon svg path {
+  stroke: #0080ff; /* Blue color for the phone icon */
+  stroke-width: 1.75; /* Slightly thicker for better visibility */
+}
+
+.icon-large.phone-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+} 
+
+/* Pill-shaped button styling for all buttons with class button-2 */
+.button-2 {
+  border-radius: 50px; /* Pill shape */
+  padding: 12px 30px;
+  min-width: 160px;
+  text-align: center;
+} 
+
+/* Ensure consistent positioning of 'Blessed Labs' text across all screen sizes */
+@media screen and (max-width: 768px) {
+  .paragraph-lg {
+    margin-left: -10px; /* Move text 10% closer to the logo on mobile */
+  }
+} 

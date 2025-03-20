@@ -1,0 +1,27 @@
+/* Mobile-only spacing adjustment between About Us and Services sections
+   This CSS specifically reduces the gap between these two sections on mobile devices only,
+   without changing any other styling or content */
+
+/* For all screen sizes - move the Services section up slightly */
+#Services.section {
+  margin-top: -15px; /* Create negative space to move section up */
+}
+
+/* For the Transform Your Business with AI heading and subheading */
+#Services .container .grid-layout:first-child {
+  margin-top: 10px; /* Reduce top margin slightly */
+}
+
+/* Only apply these styles on mobile devices */
+@media screen and (max-width: 767px) {
+  /* Reduce padding at the bottom of About Us section */
+  #AboutUs.section {
+    padding-bottom: 20px; /* Reduced bottom padding */
+  }
+  
+  /* Pull the Services section up closer to About Us section */
+  #Services.section {
+    margin-top: -25px; /* More negative margin for mobile */
+    padding-top: 20px; /* Maintain some padding for proper spacing */
+  }
+}

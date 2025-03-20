@@ -1,0 +1,6 @@
+/* Services Section Text Size Adjustment - ONLY affects the specific subheading */
+
+/* Target the specific subheading text in the Services section */
+#Services p.subheading[style*="font-size: 18px"] {
+  font-size: 16px !important; /* Reduced from 18px to 16px */
+} 

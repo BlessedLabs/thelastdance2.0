@@ -1,0 +1,365 @@
+/* Responsive Navigation Menu Styles */
+
+/* Base Navigation Styles - Apply to all screen sizes */
+.navbar-logo-left-container {
+  width: 100%;
+  position: relative;
+  z-index: 100;
+}
+
+.navbar-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 0;
+  position: relative;
+}
+
+/* Global button styling for consistency across all screen sizes */
+.button-primary, .w-button {
+  border-radius: 50px !important; /* Pill shape */
+  padding: 10px 20px !important;
+  text-align: center;
+  transition: all 0.3s ease;
+  min-width: auto !important; /* Remove fixed width constraint */
+  width: auto !important; /* Allow button to size to content */
+}
+
+/* Desktop Navigation Styles - DO NOT MODIFY THESE */
+@media screen and (min-width: 992px) {
+  .navbar-wrapper {
+    flex-wrap: nowrap;
+  }
+  
+  .menu-button {
+    display: none !important; /* Force hide hamburger on desktop */
+  }
+  
+  .nav-menu-wrapper {
+    position: relative;
+    float: right;
+    display: flex !important;
+  }
+  
+  /* Ensure desktop navigation links are visible */
+  .navbar-wrapper .link-block-2,
+  .navbar-wrapper .link-block-3,
+  .navbar-wrapper .link-block-4,
+  .navbar-wrapper .link-block {
+    display: flex !important; /* Force display on desktop */
+  }
+}
+
+/* We're removing desktop styling from here since it's in desktop-nav-enhancements.css */
+
+/* Mobile Navigation Styles - ONLY THESE SHOULD BE MODIFIED */
+@media screen and (max-width: 991px) {
+  /* Basic container styling */
+  .navbar-logo-left-container {
+    background-color: #04060f !important; /* Dark background like desktop */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+    position: relative !important; /* Changed from fixed to relative for normal scrolling */
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important; /* Ensure full width */
+    max-width: 100% !important; /* Prevent overflow */
+    box-sizing: border-box !important; /* Include padding in width calculation */
+    overflow-x: hidden !important; /* Prevent horizontal scrolling */
+    z-index: 1000 !important; /* Ensure it's above content but below menu */
+    padding-top: 0 !important; /* Remove any top padding */
+    margin-top: 0 !important; /* Remove any top margin */
+  }
+  
+  /* Remove padding from body since navbar is no longer fixed */
+  body {
+    padding-top: 0 !important; /* Changed from 60px to 0 */
+  }
+  
+  .navbar-wrapper {
+    flex-wrap: wrap;
+    padding: 15px 0;
+    width: 100% !important; /* Full width */
+    max-width: 100% !important; /* Prevent overflow */
+    box-sizing: border-box !important; /* Include padding in width */
+    position: relative !important; /* Control positioning context */
+    padding-right: 60px !important; /* Make room for menu button */
+  }
+  
+  /* Hide desktop navigation links on mobile */
+  .navbar-wrapper .link-block-2,
+  .navbar-wrapper .link-block-3,
+  .navbar-wrapper .link-block-4,
+  .navbar-wrapper .link-block {
+    display: none !important; /* Force hide on mobile */
+  }
+  
+  /* Improved hamburger menu visibility and positioning */
+  .menu-button {
+    display: block !important; /* Always show on mobile */
+    position: absolute !important;
+    right: 15px !important; /* Changed from 45px to 15px to move much further right */
+    top: 15px !important;
+    z-index: 2000 !important; /* Above everything */
+    cursor: pointer !important;
+    width: 44px !important; /* Larger tap target */
+    height: 44px !important;
+    background-color: transparent !important;
+    border: none !important;
+    padding: 10px !important;
+    margin: 0 !important;
+    opacity: 1 !important; /* Force visibility */
+    visibility: visible !important; /* Force visibility */
+    transition: background-color 0.3s ease !important;
+  }
+  
+  /* Enhanced hamburger icon visibility */
+  .w-icon-nav-menu {
+    color: white !important;
+    font-size: 24px !important;
+  }
+  
+  /* Mobile menu container */
+  .nav-menu-wrapper {
+    width: 100%;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #04060f;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3); /* Enhanced shadow */
+    padding: 20px;
+    border-radius: 0 0 12px 12px; /* Smoother corners */
+    display: none;
+    z-index: 1000;
+    float: none !important; /* Override desktop float */
+    border-top: 1px solid rgba(255, 255, 255, 0.05); /* Subtle separator */
+    max-height: calc(100vh - 70px); /* Prevent menu from being taller than viewport */
+    overflow-y: auto; /* Add scrolling if menu is taller than viewport */
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+    box-sizing: border-box !important; /* Include padding in width */
+  }
+  
+  /* Show mobile menu when active */
+  .nav-menu-wrapper.show-mobile-menu {
+    display: block !important; /* Force display when active */
+    animation: fadeIn 0.3s ease; /* Smooth animation when opening */
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  /* Improved mobile dropdown menu */
+  .w-nav-overlay {
+    display: none;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    background-color: rgba(0, 0, 0, 0.7) !important;
+    z-index: 1995 !important;
+  }
+  
+  .w-nav-overlay.w--open {
+    display: block !important;
+  }
+  
+  .w-nav-menu {
+    display: none !important;
+    position: fixed !important;
+    top: 0 !important;
+    right: 0 !important;
+    width: 80% !important;
+    max-width: 300px !important;
+    height: 100vh !important;
+    background-color: #000 !important;
+    padding: 70px 20px 20px !important;
+    box-shadow: -5px 0 25px rgba(0, 0, 0, 0.4) !important;
+    overflow-y: auto !important;
+    transform: translateX(100%) !important;
+    transition: transform 0.3s ease-in-out !important;
+    z-index: 2000 !important;
+  }
+  
+  .w-nav-menu.w--open {
+    display: block !important;
+    transform: translateX(0) !important;
+  }
+
+  /* Mobile menu list */
+  .nav-menu-two {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    max-width: 100% !important; /* Prevent overflow */
+  }
+  
+  .nav-menu-two li {
+    margin: 8px 0;
+    text-align: center;
+    width: 100% !important; /* Full width items */
+    max-width: 100% !important; /* Prevent overflow */
+  }
+  
+  /* Mobile Navigation Links */
+  .mobile-nav-link {
+    display: block;
+    padding: 14px 15px;
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    border-radius: 6px;
+    width: 100% !important; /* Full width */
+    box-sizing: border-box !important; /* Include padding in width */
+  }
+  
+  .mobile-nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: translateX(3px); /* Subtle hover effect */
+  }
+  
+  /* Improved mobile navigation links styling */
+  .w-nav-menu a {
+    display: block !important;
+    padding: 15px !important;
+    color: white !important;
+    text-decoration: none !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+    font-size: 16px !important;
+    font-weight: 500 !important;
+    transition: all 0.3s ease !important;
+    text-align: left !important;
+  }
+  
+  .w-nav-menu a:hover {
+    background-color: rgba(255, 255, 255, 0.05) !important;
+    color: #1e5ef3 !important;
+    transform: translateX(5px) !important;
+  }
+  
+  .w-nav-menu a .text-block-2 {
+    color: white !important;
+    font-size: 16px !important;
+  }
+  
+  /* Logo adjustments for mobile */
+  .image-2 {
+    width: 45px; /* Smaller logo on mobile */
+    vertical-align: middle;
+  }
+  
+  .navbar-brand {
+    display: flex !important;
+    align-items: center;
+    margin-right: 0;
+    max-width: calc(100% - 50px) !important; /* Make room for menu button */
+    overflow: hidden !important; /* Prevent overflow */
+  }
+  
+  .nav-left {
+    display: flex;
+    align-items: center;
+    max-width: calc(100% - 50px) !important; /* Make room for menu button */
+    overflow: hidden !important; /* Prevent overflow */
+  }
+  
+  .nav-logo {
+    margin-right: 0;
+    margin-left: 10px; /* Increased margin for better spacing */
+    max-width: 100% !important; /* Prevent overflow */
+    overflow: hidden !important; /* Prevent overflow */
+  }
+  
+  .paragraph-lg {
+    font-size: 16px; /* Slightly smaller text size for mobile */
+    font-weight: 600;
+    color: #ffffff !important; /* Ensure text color matches desktop */
+    margin-bottom: 0;
+    letter-spacing: 0.5px;
+    white-space: nowrap !important; /* Prevent wrapping */
+    overflow: hidden !important; /* Prevent overflow */
+    text-overflow: ellipsis !important; /* Add ellipsis if text is too long */
+  }
+}
+
+/* Small Mobile Screens */
+@media screen and (max-width: 479px) {
+  .navbar-wrapper {
+    padding: 12px 0;
+  }
+  
+  .nav-logo {
+    max-width: 50%;
+  }
+  
+  .image-2 {
+    width: 40px; /* Slightly smaller logo on very small screens */
+  }
+  
+  .paragraph-lg {
+    font-size: 15px; /* Smaller text for brand name */
+  }
+  
+  .mobile-nav-link {
+    font-size: 15px; /* Slightly larger font for better readability */
+    padding: 12px; /* More padding for better tap targets */
+    margin-bottom: 2px; /* Space between items */
+  }
+  
+  .button-primary, .w-button {
+    width: 100%;
+    text-align: center;
+    padding: 12px 15px !important; /* Adjusted padding */
+  }
+  
+  /* Improve menu container padding */
+  .nav-menu-wrapper {
+    padding: 15px; /* Slightly less padding */
+  }
+}
+
+/* Dropdown Functionality */
+@media screen and (max-width: 991px) {
+  .mobile-dropdown {
+    position: relative;
+  }
+  
+  .mobile-dropdown-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .mobile-dropdown-toggle:after {
+    content: '';
+    width: 8px;
+    height: 8px;
+    border-right: 2px solid #ffffff;
+    border-bottom: 2px solid #ffffff;
+    transform: rotate(45deg);
+    transition: transform 0.3s ease;
+    margin-left: 10px;
+  }
+  
+  .mobile-dropdown-toggle.open:after {
+    transform: rotate(-135deg);
+  }
+  
+  .mobile-dropdown-menu {
+    display: none;
+    padding-left: 20px;
+    margin-top: 5px;
+  }
+  
+  .mobile-dropdown-menu.show {
+    display: block;
+  }
+}

@@ -1,0 +1,13 @@
+/* Contact Image Size Increase - ONLY affects the image size */
+
+/* Desktop image size increase */
+.contact-image-container {
+  height: 500px !important; /* Increased from 450px to 500px */
+}
+
+/* Mobile image size increase */
+@media (max-width: 768px) {
+  .contact-image-container {
+    height: 350px !important; /* Increased from 300px to 350px */
+  }
+} 

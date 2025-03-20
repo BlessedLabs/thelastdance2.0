@@ -1,0 +1,48 @@
+/* Contact Section Static Override - Remove all animations and effects */
+
+/* Target the entire Contact section */
+#Contact.section * {
+  transition: none !important;
+  animation: none !important;
+  transform: none !important;
+}
+
+/* Override any hover effects in the Contact section */
+#Contact .flex-horizontal li,
+#Contact .flex-horizontal li:hover {
+  transform: none !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3) !important; /* Keep static shadow */
+  transition: none !important;
+}
+
+/* Prevent image hover animations */
+#Contact .contact-image-container img,
+#Contact .contact-image-container img:hover {
+  transform: none !important;
+  transition: none !important;
+}
+
+/* Static buttons */
+#Contact .button-2.w-button,
+#Contact .button-2.w-button:hover {
+  transform: none !important;
+  box-shadow: 0 4px 10px rgba(30, 94, 243, 0.3) !important; /* Keep static shadow */
+  transition: none !important;
+}
+
+/* Static links */
+#Contact .text-link, 
+#Contact .secondary-text-link,
+#Contact .text-link:hover, 
+#Contact .secondary-text-link:hover {
+  transition: none !important;
+  color: #1e5ef3 !important; /* Keep fixed color */
+}
+
+/* Ensure no animations or transitions are applied */
+#Contact * {
+  animation-duration: 0s !important;
+  animation-delay: 0s !important;
+  transition-duration: 0s !important;
+  transition-delay: 0s !important;
+} 

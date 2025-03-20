@@ -1,0 +1,43 @@
+/* Brand Enhancement for Blessed Labs */
+
+/* Enhanced Blessed Labs text styling */
+.nav-logo .paragraph-lg {
+  color: white !important;
+  font-size: 22px !important; /* Larger font size */
+  font-weight: 600 !important; /* Slightly bolder */
+  letter-spacing: 0.5px !important; /* Better letter spacing */
+  text-transform: none !important; /* Preserve capitalization */
+  font-family: 'Inter', sans-serif !important; /* Ensure consistent font */
+  position: relative !important;
+  padding-left: 5px !important; /* Add slight spacing from logo */
+  white-space: nowrap !important; /* Keep on one line */
+}
+
+/* Add subtle glow effect on hover */
+.nav-logo:hover .paragraph-lg {
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.3) !important;
+  transition: text-shadow 0.3s ease-in-out !important;
+}
+
+/* Ensure proper alignment with logo */
+.navbar-brand.w-nav-brand {
+  display: flex !important;
+  align-items: center !important;
+}
+
+.nav-left {
+  display: flex !important;
+  align-items: center !important;
+  margin-left: 10px !important;
+}
+
+/* Mobile optimization for brand text */
+@media screen and (max-width: 767px) {
+  .nav-logo .paragraph-lg {
+    font-size: 20px !important; /* Slightly smaller on mobile but still prominent */
+  }
+  
+  .nav-left {
+    margin-left: 8px !important;
+  }
+} 

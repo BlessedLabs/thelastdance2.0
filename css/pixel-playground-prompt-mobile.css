@@ -1,0 +1,39 @@
+/* Mobile-only styling to enlarge the prompt input box in Pixel Playground */
+
+@media screen and (max-width: 767px) {
+  /* Target the prompt input field - using common React input selectors */
+  #root input[type="text"],
+  #root textarea,
+  #root div[contenteditable="true"],
+  #root .prompt-input,
+  #root input.w-full,
+  #root textarea.w-full {
+    font-size: 16px !important; /* Larger font size for better readability */
+    min-height: 80px !important; /* Taller input area */
+    padding: 12px !important; /* More padding inside the input */
+    margin-bottom: 15px !important; /* Add space below */
+    width: 100% !important; /* Ensure full width */
+    border-radius: 8px !important; /* Rounded corners */
+    box-sizing: border-box !important; /* Ensure padding doesn't affect width */
+  }
+  
+  /* Target any containers that might be constraining the input */
+  #root form,
+  #root .prompt-container,
+  #root .input-wrapper,
+  #root div:has(> input[type="text"]),
+  #root div:has(> textarea) {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin-bottom: 15px !important;
+  }
+  
+  /* Make sure any buttons below the input have proper spacing */
+  #root button,
+  #root .button,
+  #root [type="button"],
+  #root [type="submit"] {
+    margin-top: 10px !important;
+  }
+} 

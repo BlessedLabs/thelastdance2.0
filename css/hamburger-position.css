@@ -1,0 +1,77 @@
+/* Mobile-only hamburger menu positioning
+   This CSS positions the hamburger menu all the way to the right side of the navigation bar
+   on mobile devices only, vertically centered within the navbar */
+
+/* Only apply these styles on mobile devices */
+@media screen and (max-width: 991px) {
+  /* Position hamburger menu at right side of navigation bar */
+  .menu-button, .w-nav-button {
+    position: absolute !important; /* Position relative to its container (navbar) */
+    right: 10px !important; /* Position to the right edge with small margin */
+    top: 50% !important; /* Center vertically */
+    transform: translateY(-50%) !important; /* Ensure perfect vertical centering */
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 44px !important;
+    height: 44px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    z-index: 2000 !important;
+    background-color: transparent !important;
+  }
+  
+  /* Create proper spacing in navbar container */
+  .navbar-wrapper {
+    padding-right: 50px !important; /* Add space for the hamburger menu */
+    position: relative !important; /* Ensure positioning context for hamburger */
+  }
+  
+  /* Ensure the container allows proper positioning */
+  .navbar-logo-left-container .container {
+    position: relative !important;
+    padding-right: 0 !important;
+  }
+  
+  /* Custom hamburger icon styling */
+  .menu-button:after, .w-nav-button:after {
+    content: "☰" !important; /* Unicode hamburger symbol */
+    font-size: 24px !important;
+    color: white !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+  
+  /* Hide default Webflow icon */
+  .w-icon-nav-menu {
+    display: none !important;
+  }
+  
+  /* Ensure the menu is always visible */
+  .menu-button, .w-nav-button {
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+  
+  /* CRITICAL: Preserve logo and AI Studio text position - DO NOT CHANGE */
+  .navbar-brand, .nav-left, .nav-logo {
+    position: relative !important;
+    left: 0 !important;
+    margin-left: 0 !important;
+    transform: none !important;
+  }
+  
+  /* Ensure logo positioning is preserved */
+  .image-2 {
+    position: relative !important;
+    left: 0 !important;
+    transform: none !important;
+  }
+  
+  /* Ensure AI Studio text positioning is preserved */
+  .ai-studio-subtitle {
+    position: relative !important;
+    transform: none !important;
+  }
+}

@@ -1,0 +1,104 @@
+/* 
+ * Mobile Overflow Fix
+ * This file addresses the horizontal overflow issues on mobile devices
+ * without affecting the desktop layout.
+ */
+
+/* Base fix for all mobile screen sizes */
+@media screen and (max-width: 991px) {
+  /* Force box-sizing on all elements to prevent overflow */
+  * {
+    box-sizing: border-box !important;
+  }
+  
+  /* Prevent page horizontal scrolling */
+  html, body {
+    overflow-x: hidden !important;
+    width: 100% !important;
+    position: relative !important;
+  }
+}
+
+/* Specific mobile fixes */
+@media screen and (max-width: 767px) {
+  /* Make all elements flexible to viewport width */
+  img, video, iframe, canvas, svg, table {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+  
+  /* Handle specific elements that may cause overflow */
+  .full-width-container,
+  .grid-layout,
+  .w-layout-grid,
+  .container,
+  section,
+  header,
+  footer,
+  .utility-aspect-3x2,
+  [class*="utility-aspect"] {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+  }
+  
+  /* Ensure all text elements wrap properly */
+  h1, h2, h3, h4, h5, h6, p, .subheading, .paragraph {
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+    max-width: 100% !important;
+  }
+  
+  /* Ensure the hamburger menu is properly positioned */
+  .menu-button {
+    right: 10px !important;
+    position: absolute !important;
+    z-index: 999 !important;
+  }
+  
+  /* Fix container padding */
+  .container {
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+  }
+  
+  /* Ensure proper mobile grid layout */
+  .grid-layout > div,
+  .grid-layout > [id^="w-node-"] {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  
+  /* Fix for inline styles that may set fixed widths */
+  [style*="width:"],
+  [style*="width ="],
+  [style*="max-width:"],
+  [style*="max-width ="] {
+    max-width: 100% !important;
+    width: auto !important;
+  }
+}
+
+/* Smallest screen fixes */
+@media screen and (max-width: 479px) {
+  /* Further optimize container padding for very small screens */
+  .container {
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+  }
+  
+  /* Ensure service section cards fit properly */
+  #Services .grid-layout > div {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+  
+  /* Fix for any extra margins on small screens */
+  [class*="utility-margin-left"],
+  [class*="utility-margin-right"] {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+} 

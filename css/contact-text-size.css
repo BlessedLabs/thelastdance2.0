@@ -1,0 +1,25 @@
+/* Contact Section Text Size Increase */
+
+/* Section Title - "Connect with Our Team" */
+#Contact .h2-heading {
+  font-size: 40px !important; /* Increased from 32px */
+  font-weight: 600 !important;
+  margin-bottom: 15px !important;
+}
+
+/* Subheading - "We're here to assist you with any inquiries" */
+#Contact .subheading {
+  font-size: 20px !important; /* Increased from 16px */
+  margin-bottom: 55px !important;
+}
+
+/* Mobile Responsive Adjustments */
+@media (max-width: 768px) {
+  #Contact .h2-heading {
+    font-size: 36px !important; /* Slightly smaller on mobile but still larger than before */
+  }
+  
+  #Contact .subheading {
+    font-size: 18px !important; /* Slightly smaller on mobile but still larger than before */
+  }
+} 

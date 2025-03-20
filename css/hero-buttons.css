@@ -1,0 +1,66 @@
+/* Hero Section Button Enhancements
+ * Increases the size of buttons in the hero section by exactly 13%
+ */
+
+/* Target buttons specifically in the hero section */
+.container.small-container .button-group .button.w-button,
+.container.small-container .button-group .secondary-button.w-button {
+  /* Increase padding for larger button size (exactly 13% larger) */
+  padding: 12px 24px !important;
+  
+  /* Increase font size slightly for better proportion */
+  font-size: 16px !important;
+  
+  /* Ensure text remains centered */
+  text-align: center;
+  
+  /* Maintain consistent line height */
+  line-height: 1.4;
+  
+  /* Ensure proper vertical alignment */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  
+  /* Maintain pill shape with proper border-radius */
+  border-radius: 50px;
+  
+  /* Add minimum width to ensure buttons have consistent size */
+  min-width: 160px;
+  
+  /* Add transition for smooth hover effects */
+  transition: all 0.3s ease;
+}
+
+/* Ensure proper spacing between buttons in the group */
+.container.small-container .button-group {
+  gap: 12px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Responsive adjustments for smaller screens */
+@media screen and (max-width: 767px) {
+  .container.small-container .button-group .button.w-button,
+  .container.small-container .button-group .secondary-button.w-button {
+    /* Slightly smaller on mobile but still larger than original */
+    padding: 11px 22px !important;
+    font-size: 15px !important;
+    min-width: 150px;
+  }
+  
+  /* Ensure buttons stack properly on very small screens */
+  @media screen and (max-width: 479px) {
+    .container.small-container .button-group {
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .container.small-container .button-group .button.w-button,
+    .container.small-container .button-group .secondary-button.w-button {
+      width: 100%;
+      max-width: 250px;
+    }
+  }
+} 

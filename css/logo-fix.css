@@ -1,0 +1,66 @@
+/* Logo Fix - Ensure logo is visible in navigation bar */
+
+/* Target the logo specifically */
+.navbar-brand.w-nav-brand {
+  display: flex !important;
+  align-items: center !important;
+}
+
+.navbar-brand.w-nav-brand img.image-2 {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  width: 50px !important;
+  height: auto !important;
+  margin-right: 10px !important;
+  max-width: none !important;
+}
+
+/* Ensure logo sits next to Blessed Labs text */
+.navbar-wrapper > .navbar-brand + .nav-left {
+  display: flex !important;
+  align-items: center !important;
+  margin-left: 0 !important;
+}
+
+/* Force horizontal layout for Blessed Labs text */
+.nav-logo {
+  display: flex !important;
+  align-items: center !important;
+}
+
+.nav-logo .paragraph-lg {
+  white-space: nowrap !important;
+  display: inline-block !important;
+}
+
+/* Remove any line breaks in Blessed Labs text */
+.nav-logo .paragraph-lg br {
+  display: none !important;
+}
+
+/* Ensure proper layout for logo section */
+.navbar-wrapper.logo {
+  display: flex !important;
+  align-items: center !important;
+}
+
+/* Restore any filters or styles that might hide the logo */
+.navbar-brand .image-2 {
+  filter: none !important;
+  opacity: 1 !important;
+}
+
+/* Improved spacing for navigation items */
+.navbar-wrapper > div {
+  margin-right: 20px !important;
+}
+
+/* Mobile-only logo size increase */
+@media screen and (max-width: 991px) {
+  .navbar-brand.w-nav-brand img.image-2 {
+    width: 70px !important;
+    min-width: 70px !important;
+    height: auto !important;
+  }
+} 

@@ -1,0 +1,135 @@
+/* Contact Layout Styling */
+
+/* Main contact section container */
+.contact-layout-container {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding: 40px 0;
+  background-color: #04060f;
+  color: #ffffff;
+}
+
+/* Section headings */
+.contact-section-heading {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #ffffff;
+}
+
+/* Location section */
+.location-section {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.location-address {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+}
+
+.location-icon {
+  color: #0080ff;
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+}
+
+.address-text {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #ffffff;
+}
+
+/* Contact Us section */
+.contact-us-section {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  margin-bottom: 10px;
+}
+
+.contact-icon {
+  color: #0080ff;
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+}
+
+.contact-text {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #ffffff;
+}
+
+.contact-email {
+  font-size: 16px;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+/* Quick Links section */
+.quick-links-section {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.quick-links-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.quick-link-item {
+  font-size: 16px;
+}
+
+.quick-link {
+  color: #ffffff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.quick-link:hover {
+  color: #0080ff;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 767px) {
+  .contact-layout-container {
+    gap: 30px;
+    padding: 30px 0;
+  }
+  
+  .contact-section-heading {
+    font-size: 22px;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .contact-layout-container {
+    gap: 25px;
+    padding: 25px 0;
+  }
+  
+  .contact-section-heading {
+    font-size: 20px;
+  }
+  
+  .address-text, .contact-text, .contact-email, .quick-link-item {
+    font-size: 15px;
+  }
+} 

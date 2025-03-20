@@ -1,0 +1,48 @@
+/* Button Improvements and Spacing Fixes */
+
+/* Navigation links styling */
+.navbar-wrapper .text-block-2 {
+  transition: color 0.3s ease;
+}
+
+/* Adjust the position that previously had Work With Us button */
+.navbar-wrapper {
+  justify-content: space-between;
+}
+
+/* Ensure consistent button styles for hero section buttons */
+.button.w-button {
+  background-color: #1e5ef3;
+  border-radius: 8px;
+  padding: 12px 24px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(30, 94, 243, 0.3);
+}
+
+.button.w-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(30, 94, 243, 0.4);
+  background-color: #1952d8;
+}
+
+.button.secondary-button.w-button {
+  background-color: transparent;
+  border: 2px solid #1e5ef3;
+  color: #1e5ef3;
+  box-shadow: none;
+}
+
+.button.secondary-button.w-button:hover {
+  background-color: rgba(30, 94, 243, 0.1);
+  border-color: #1952d8;
+  color: #1952d8;
+  transform: translateY(-2px);
+}
+
+/* Better mobile styles for the buttons */
+@media screen and (max-width: 991px) {
+  .navbar-wrapper .link-block:last-of-type {
+    margin-right: 0; /* Reset margin on mobile */
+  }
+} 

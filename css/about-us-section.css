@@ -1,0 +1,168 @@
+/* About Us Section Styling */
+
+/* Main section container */
+#AboutUs.section {
+  background-color: var(--ai-gen-82921b10-4b39-48f0-b346-808cf4903d29-1742060883571---background-color--bg-primary);
+  color: var(--ai-gen-82921b10-4b39-48f0-b346-808cf4903d29-1742060883571---text-color--text-primary);
+  padding: 70px 0;
+}
+
+/* Main heading container */
+#AboutUs .w-layout-grid.grid-layout {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+/* Center the content div */
+#AboutUs .grid-layout > div {
+  max-width: 800px;
+  margin: 0 auto 40px;
+  width: 100%;
+}
+
+/* Main heading */
+#AboutUs .heading {
+  font-size: 46px;
+  margin-bottom: 20px;
+  color: #ffffff;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* Introduction text */
+#AboutUs .subheading {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 18px;
+  line-height: 1.65;
+  text-align: center;
+  margin: 0 auto;
+  max-width: 700px;
+}
+
+/* Content area */
+#AboutUs .utility-margin-top-3rem {
+  max-width: 800px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding: 0 20px;
+}
+
+/* Content container */
+#AboutUs .utility-margin-top-3rem > div {
+  max-width: 100%;
+  width: 100%;
+}
+
+/* Section headings */
+#AboutUs .h4-heading {
+  font-size: 28px;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  color: #ffffff;
+  font-weight: 600;
+  text-align: left;
+}
+
+/* First heading needs less top margin */
+#AboutUs .h4-heading:first-of-type {
+  margin-top: 0;
+}
+
+/* Add spacing between paragraphs and headings for better readability */
+#AboutUs p + .h4-heading {
+  margin-top: 35px; /* Extra space between paragraph and next heading */
+}
+
+/* Paragraphs */
+#AboutUs p {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 17px; /* Changed from 16px to maintain consistency with other sections */
+  line-height: 1.7;
+  margin-bottom: 0;
+  text-align: left;
+}
+
+/* Final paragraph with call to action */
+#AboutUs p:last-of-type {
+  margin-top: 30px;
+  font-weight: 500;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 767px) {
+  #AboutUs.section {
+    padding: 50px 0;
+  }
+  
+  #AboutUs .heading {
+    font-size: 40px; /* Decreased from 42px but still larger than original 38px */
+    font-weight: 700; /* Keep bold weight for better visibility */
+  }
+  
+  #AboutUs .h4-heading {
+    font-size: 24px;
+  }
+  
+  #AboutUs .subheading {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+  
+  #AboutUs p {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 10px;
+  }
+  
+  #AboutUs .utility-margin-top-3rem {
+    padding: 0 15px;
+  }
+  
+  /* Adjust spacing between paragraphs and headings on mobile */
+  #AboutUs p + .h4-heading {
+    margin-top: 30px;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  #AboutUs.section {
+    padding: 40px 0;
+  }
+  
+  #AboutUs .heading {
+    font-size: 36px; /* Decreased from 38px but still larger than original 32px */
+    margin-bottom: 15px;
+    font-weight: 700; /* Keep bold weight for better visibility */
+  }
+  
+  #AboutUs .subheading {
+    font-size: 16px;
+    line-height: 1.5;
+    padding: 0 15px;
+  }
+  
+  #AboutUs .h4-heading {
+    font-size: 22px; /* Slightly larger for better readability */
+    margin-top: 30px;
+    margin-bottom: 12px;
+    line-height: 1.3;
+  }
+  
+  #AboutUs p {
+    font-size: 16px; /* Maintain consistent 16px font size */
+    line-height: 1.6;
+    margin-bottom: 15px;
+    letter-spacing: 0.2px; /* Slightly improved letter spacing for readability */
+  }
+  
+  #AboutUs .utility-margin-top-3rem {
+    padding: 0 15px;
+    margin-top: 30px !important;
+  }
+  
+  /* Adjust spacing between paragraphs and headings on small mobile */
+  #AboutUs p + .h4-heading {
+    margin-top: 25px;
+  }
+} 

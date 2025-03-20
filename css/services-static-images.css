@@ -1,0 +1,42 @@
+/* Disable hover effects for service section images 
+   This CSS targets the image hover effects in the "Transform your business with AI" section 
+   to prevent any scrolling, movement, or animation on hover */
+
+/* Target the specific image containers and images in the services section */
+#Services .utility-aspect-3x2 {
+  overflow: hidden !important;
+  transition: none !important;
+  transform: none !important;
+}
+
+/* Disable any hover effects on the images themselves */
+#Services .utility-aspect-3x2 img,
+#Services .utility-aspect-3x2 .image,
+#Services .utility-aspect-3x2 .cover-image,
+#Services .image.cover-image {
+  transition: none !important;
+  transform: none !important;
+  animation: none !important;
+  object-fit: cover !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* Ensure the image remains completely static on hover */
+#Services .utility-aspect-3x2:hover,
+#Services .utility-aspect-3x2:hover img,
+#Services .utility-aspect-3x2:hover .image,
+#Services .utility-aspect-3x2:hover .cover-image,
+#Services .image.cover-image:hover {
+  transition: none !important;
+  transform: none !important;
+  animation: none !important;
+  filter: none !important;
+  scale: 1 !important;
+}
+
+/* Target any possible animations that might be applied via JavaScript */
+#Services .utility-aspect-3x2 * {
+  animation-play-state: paused !important;
+  transition: none !important;
+} 

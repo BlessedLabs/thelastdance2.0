@@ -1,0 +1,32 @@
+/* Mobile-only spacing adjustment between Services and Pixel Playground (ImageGenerator) sections
+   This CSS specifically targets the spacing between these two sections on mobile devices,
+   creating an appropriate gap for better visual separation */
+
+/* Only apply these styles on mobile devices */
+@media screen and (max-width: 767px) {
+  /* Moderate padding at the bottom of Services section */
+  #Services.section {
+    padding-bottom: 30px; /* Moderate padding - not too much, not too little */
+  }
+  
+  /* Slight separation between sections */
+  #ImageGenerator.section {
+    margin-top: -10px; /* Small negative margin for slight overlap */
+    padding-top: 20px; /* Moderate top padding */
+  }
+  
+  /* Ensure the image generator container maintains proper spacing */
+  #ImageGenerator .container {
+    padding-top: 10px; /* Modest padding */
+  }
+  
+  /* Adjust image generator container spacing */
+  .image-generator-container {
+    margin-top: 15px; /* Moderate margin */
+  }
+  
+  /* Make sure the services section has adequate bottom spacing */
+  #Services .w-layout-grid.grid-layout:last-child {
+    margin-bottom: 25px; /* Moderate margin for better separation */
+  }
+}

@@ -1,0 +1,62 @@
+/* Color Animations for titles and accents */
+
+/* Animated gradient title */
+.animated-title {
+  background: linear-gradient(-45deg, #ff3d00, #0400ff, #4a00e0, #8e2de2);
+  background-size: 400% 400%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent !important;
+  animation: gradient 15s ease infinite;
+  font-weight: 800 !important;
+  letter-spacing: 0.02em;
+  display: inline-block;
+  margin-bottom: 0.5rem;
+}
+
+.animated-subtitle {
+  background: linear-gradient(-45deg, #2de28e, #00d4ff, #2d63e2, #8e2de2);
+  background-size: 400% 400%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent !important;
+  animation: gradient 15s ease infinite;
+  animation-delay: 0.5s;
+  font-weight: 600 !important;
+  letter-spacing: 0.02em;
+  margin-bottom: 2rem;
+}
+
+/* Gradient animation keyframes */
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Glow effect for certain elements */
+.glow-effect {
+  text-shadow: 0 0 10px rgba(46, 213, 255, 0.5),
+               0 0 20px rgba(46, 213, 255, 0.3),
+               0 0 30px rgba(46, 213, 255, 0.1);
+}
+
+/* Pulse animation for attention-grabbing elements */
+.pulse-animation {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}

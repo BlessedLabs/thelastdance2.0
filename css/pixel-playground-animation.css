@@ -1,0 +1,33 @@
+/* Animation for Pixel Playground nav item */
+
+/* Target the Pixel Playground text specifically */
+.navbar-wrapper a[href="#ImageGenerator"] .text-block-2 {
+  background: linear-gradient(-45deg, #1e5ef3, #4a00e0, #00d4ff, #1e5ef3);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent !important;
+  animation: gradient 6s ease-in-out infinite;
+  position: relative;
+  font-weight: 500;
+}
+
+/* Keep the animation when hovering */
+.navbar-wrapper a[href="#ImageGenerator"]:hover .text-block-2 {
+  color: transparent !important;
+  opacity: 0.9;
+}
+
+/* Removed sparkle/pulse effects here */
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+} 

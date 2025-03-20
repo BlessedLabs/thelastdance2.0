@@ -1,0 +1,153 @@
+/* Footer Redesign - Clean, Professional Look */
+
+/* Main Footer Container */
+.footer-container {
+  background-color: #020510;
+  padding: 50px 0 30px;
+  color: #fff;
+  position: relative;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Content Container */
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+/* Left Section - Logo and Tagline */
+.footer-left {
+  flex: 1;
+  min-width: 250px;
+  max-width: 300px;
+}
+
+/* Logo Container */
+.logo-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+/* Footer Logo */
+.footer-logo {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  margin-right: 10px;
+}
+
+/* Studio Text */
+.studio-text {
+  font-size: 19px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+/* Tagline */
+.footer-tagline {
+  font-size: 13px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 0;
+}
+
+/* Footer Navigation */
+.footer-nav {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+/* Nav List */
+.footer-nav-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px 30px;
+  justify-content: center;
+}
+
+/* Nav Items */
+.footer-nav-item {
+  margin-bottom: 10px;
+}
+
+.footer-nav-item a {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.3s ease;
+  padding: 5px 0;
+}
+
+.footer-nav-item a:hover {
+  color: #1e5ef3;
+}
+
+/* Right Section - Copyright */
+.footer-right {
+  flex: 1;
+  min-width: 250px;
+  max-width: 300px;
+  text-align: right;
+}
+
+/* Copyright Text */
+.footer-copyright {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* Separator Line */
+.footer-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.1), transparent);
+}
+
+/* Mobile Responsive Design */
+@media (max-width: 768px) {
+  .footer-container {
+    padding: 40px 0 25px;
+  }
+  
+  .footer-content {
+    flex-direction: column;
+    gap: 30px;
+    text-align: center;
+  }
+  
+  .footer-left, .footer-right {
+    min-width: auto;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+  
+  .logo-container {
+    justify-content: center;
+  }
+  
+  .footer-right {
+    text-align: center;
+  }
+  
+  .footer-nav {
+    order: 2; /* Change order to put nav between logo and copyright */
+  }
+  
+  .footer-right {
+    order: 3;
+  }
+} 
