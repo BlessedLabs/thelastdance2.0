@@ -1,0 +1,46 @@
+/* Remove Spinning Star CSS */
+
+/* Target the specific spinning star with all possible selectors */
+.animate-spin, 
+.animate-pulse,
+.animate-\[spin_4s_linear_infinite\],
+span.rounded-full,
+[class*="animate-spin"], 
+[class*="animate-[spin"],
+svg.absolute,
+.absolute.rounded-full,
+.w-5.h-5.absolute,
+.w-4.h-4.absolute,
+span.absolute.blur-lg,
+span.absolute.w-4, 
+span.absolute.w-5,
+span.absolute.h-4, 
+span.absolute.h-5,
+svg,
+#root svg {
+  display: none !important;
+  position: absolute !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  animation: none !important;
+  transform: none !important;
+  left: -9999px !important;
+  top: -9999px !important;
+  z-index: -9999 !important;
+}
+
+/* Extra protection to override animation */
+@keyframes spin {
+  from { transform: none; }
+  to { transform: none; }
+}
+
+/* Hide anything spinning */
+*[style*="rotate"],
+*[style*="animation"] {
+  animation: none !important;
+  transform: none !important;
+}

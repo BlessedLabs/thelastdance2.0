@@ -558,6 +558,8 @@
       <!-- Load Pixelplayhouse assets -->
       <script type="module" src="assets/index-C22EvlyQ.js"></script>
       <link rel="stylesheet" href="assets/index-5iTVPTBm.css">
+      <!-- Add star removal CSS - this must be loaded after the main CSS -->
+      <link rel="stylesheet" href="css/remove-spinning-star.css">
       
       <!-- Custom animation for the Generate button -->
       <style>
@@ -586,16 +588,99 @@
         }
       </style>
       
-      <!-- Custom size adjustments for text elements -->
+      <!-- Direct override to remove the spinning star/sparkle -->
       <style>
-        /* Desktop styles are handled by inline JavaScript on load/resize */
+        /* Aggressive targeting of the spinning star but preserving AI text */
+        .animate-spin, 
+        .animate-\[spin_4s_linear_infinite\],
+        span.rounded-full,
+        [class*="animate-spin"], 
+        [class*="animate-[spin"],
+        svg.absolute,
+        .absolute.rounded-full,
+        .w-5.h-5.absolute,
+        .w-4.h-4.absolute,
+        span.absolute.blur-lg,
+        span.absolute.w-4, 
+        span.absolute.w-5,
+        span.absolute.h-4, 
+        span.absolute.h-5 {
+          display: none !important;
+          position: absolute !important;
+          opacity: 0 !important;
+          visibility: hidden !important;
+          pointer-events: none !important;
+          width: 0 !important;
+          height: 0 !important;
+          animation: none !important;
+          transform: none !important;
+          left: -9999px !important;
+          top: -9999px !important;
+        }
       </style>
       
       <!-- Custom JavaScript for mobile sparkle positioning -->
+      <!-- Script to forcefully remove ALL spinning elements -->
       <script>
         // Function to run when the DOM is ready
         document.addEventListener('DOMContentLoaded', function() {
           let setupComplete = false;
+          
+          // Function to remove all spinning elements by direct DOM manipulation
+          function removeSpinningElements() {
+            // Target every possible type of element that could be a spinning star
+            const selectors = [
+              // Animation classes
+              '#root .animate-spin', 
+              '#root .animate-pulse',
+              '#root *[class*="animate-spin"]',
+              '#root *[class*="animate-[spin"]',
+              
+              // Element types that might be spinning
+              '#root svg',
+              '#root span.absolute',
+              '#root span.rounded-full',
+              
+              // Size-based selectors
+              '#root .w-4.h-4',
+              '#root .w-5.h-5',
+              '#root .w-6.h-6',
+              
+              // Position-based selectors
+              '#root .absolute.rounded-full',
+              '#root span[style*="animation"]',
+              '#root *[style*="rotate"]'
+            ];
+            
+            // Query for all these elements
+            selectors.forEach(selector => {
+              document.querySelectorAll(selector).forEach(element => {
+                // Check if it's likely a star/sparkle (not text)
+                const isLikelySparkle = element.tagName === 'svg' || 
+                                         element.classList.contains('rounded-full') ||
+                                         element.classList.contains('animate-spin') ||
+                                         element.classList.contains('animate-pulse') ||
+                                         window.getComputedStyle(element).animation !== 'none';
+                
+                if (isLikelySparkle) {
+                  // Completely remove from DOM
+                  if (element.parentNode) {
+                    console.log('Removing element:', element);
+                    element.parentNode.removeChild(element);
+                  }
+                }
+              });
+            });
+          }
+          
+          // Run immediately and then periodically
+          removeSpinningElements();
+          
+          // Continue checking for dynamically added elements
+          const removalInterval = setInterval(removeSpinningElements, 300);
+          
+          // Keep running for 10 seconds to catch any late-loading elements
+          setTimeout(() => clearInterval(removalInterval), 10000);
           
           // Function to adjust AI Generator elements
           function adjustAIGeneratorElements() {
@@ -627,32 +712,26 @@
                   subtitleText.style.fontSize = isMobile ? '1.2rem' : '1.5rem';
                 }
                 
-                // Adjust the sparkle elements
+                // Remove the sparkle/star elements but keep the text
                 sparkleElements.forEach(function(sparkle) {
-                  if (isMobile) {
-                    // Get computed style to check background color
-                    const style = window.getComputedStyle(sparkle);
-                    const hasBlueBackground = 
-                      style.backgroundColor.includes('rgb(30, 94, 243)') || 
-                      sparkle.classList.contains('blur-lg') || 
-                      sparkle.classList.contains('animate-pulse');
-                    
-                    // Only modify elements that look like our sparkles
-                    if (hasBlueBackground || sparkle.classList.contains('rounded-full')) {
-                      // Position directly above the "A" in AI Image
-                      sparkle.style.top = '-4.5rem';
-                      sparkle.style.left = '0.5rem';
-                      sparkle.style.right = 'auto';
-                      sparkle.style.bottom = 'auto';
-                      sparkle.style.zIndex = '10';
-                    }
-                  } else {
-                    // Reset to default on desktop
-                    sparkle.style.top = '';
-                    sparkle.style.right = '';
-                    sparkle.style.bottom = '';
-                    sparkle.style.left = '';
-                    sparkle.style.zIndex = '';
+                  // Check if this is a sparkle/star (animated element)
+                  const style = window.getComputedStyle(sparkle);
+                  const isStarOrSparkle = 
+                    sparkle.classList.contains('animate-spin') ||
+                    sparkle.classList.contains('rounded-full') ||
+                    style.animation.includes('spin') ||
+                    (sparkle.classList.contains('absolute') && 
+                     (sparkle.classList.contains('blur-lg') || 
+                      sparkle.classList.contains('animate-pulse')));
+                  
+                  // Only remove if it's a star/sparkle
+                  if (isStarOrSparkle) {
+                    // Hide completely
+                    sparkle.style.display = 'none';
+                    sparkle.style.opacity = '0';
+                    sparkle.style.visibility = 'hidden';
+                    sparkle.style.width = '0';
+                    sparkle.style.height = '0';
                   }
                 });
                 

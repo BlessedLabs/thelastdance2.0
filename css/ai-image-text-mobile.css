@@ -25,9 +25,14 @@
     transform-origin: center !important;
   }
   
-  /* Ensure sparkle positioning adjusts to the new text size */
+  /* Completely remove all sparkle elements */
   #root span.absolute.blur-lg,
-  #root div > span.absolute.blur-lg {
-    top: -5rem !important; /* Adjust sparkle position with the taller text */
+  #root div > span.absolute.blur-lg,
+  #root .rounded-full.absolute,
+  #root .animate-spin,
+  #root .animate-pulse {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
   }
 } 
