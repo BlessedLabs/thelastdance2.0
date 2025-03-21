@@ -251,8 +251,7 @@
   
   /* Prevent horizontal overflow on all elements */
   html, body {
-    overflow-x: hidden !important;
-    position: relative !important;
+    overflow-x: hidden !important; /* Prevent horizontal scrolling only */
     width: 100% !important;
     max-width: 100% !important;
     margin: 0 !important;

@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const mobileMenuOverlay = document.createElement('div');
   mobileMenuOverlay.id = 'bl-mobile-menu-overlay';
   
-  // Force overlay styles with !important
+  // Force overlay styles with !important - centered content
   Object.assign(mobileMenuOverlay.style, {
     position: 'fixed',
     top: '0',
@@ -29,21 +29,27 @@ document.addEventListener('DOMContentLoaded', function() {
     zIndex: '99999',
     display: 'none',
     overflowY: 'auto',
-    padding: '70px 0 20px 0' // Keep padding to provide space below the navbar
+    padding: '70px 0 20px 0', // Keep padding to provide space below the navbar
+    alignItems: 'center',
+    justifyContent: 'center'
   });
   
   // Create a container for the menu items
   const menuContainer = document.createElement('div');
   menuContainer.id = 'bl-mobile-menu-container';
   
-  // Force styles for menu container
+  // Force styles for menu container - centered vertically and horizontally
   Object.assign(menuContainer.style, {
     maxWidth: '100%',
     width: '100%',
     padding: '20px',
     color: 'white',
     fontFamily: 'Inter, sans-serif',
-    boxSizing: 'border-box'
+    boxSizing: 'border-box',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center'
   });
   
   // Define the menu links exactly as shown in desktop
@@ -55,60 +61,127 @@ document.addEventListener('DOMContentLoaded', function() {
     { text: 'Contact', url: '#Contact' }
   ];
   
-  // Add each menu item
+  // ===== COMPLETELY NEW LINK CREATION APPROACH =====
+  // Using direct, immediate navigation with no delays
+  
   menuItems.forEach(function(item) {
-    const menuItem = document.createElement('a');
-    menuItem.href = item.url;
-    menuItem.textContent = item.text;
+    // Create a div wrapper instead of an <a> tag to avoid browser tap behavior
+    const linkDiv = document.createElement('div');
     
-    // Force link styles
-    Object.assign(menuItem.style, {
-      display: 'block',
+    // Set a data attribute for the target
+    linkDiv.setAttribute('data-target', item.url);
+    
+    // Force link styles - centered horizontally 
+    Object.assign(linkDiv.style, {
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
       color: 'white',
       fontSize: '24px',
       padding: '20px 30px',
-      textDecoration: 'none',
       borderBottom: '1px solid rgba(255, 255, 255, 0.1)',
-      margin: '0',
+      margin: '0 auto',
       fontWeight: '500',
       width: '100%',
+      maxWidth: '250px',
       boxSizing: 'border-box',
-      textAlign: 'left'
+      textAlign: 'center',
+      cursor: 'pointer', // Show clickable cursor
+      userSelect: 'none', // Prevent text selection
+      webkitTapHighlightColor: 'transparent' // Remove tap highlighting
     });
+    
+    // Set the inner text
+    linkDiv.textContent = item.text;
     
     // Special styling for Pixel Playground
     if (item.isSpecial) {
-      menuItem.style.background = 'linear-gradient(-45deg, #3f6eff, #4a00e0, #00d4ff, #2e5ef3)';
-      menuItem.style.backgroundSize = '200% auto';
-      menuItem.style.webkitBackgroundClip = 'text';
-      menuItem.style.backgroundClip = 'text';
-      menuItem.style.webkitTextFillColor = 'transparent';
-      menuItem.style.color = 'transparent';
+      linkDiv.style.background = 'linear-gradient(-45deg, #3f6eff, #4a00e0, #00d4ff, #2e5ef3)';
+      linkDiv.style.backgroundSize = '200% auto';
+      linkDiv.style.webkitBackgroundClip = 'text';
+      linkDiv.style.backgroundClip = 'text';
+      linkDiv.style.webkitTextFillColor = 'transparent';
+      linkDiv.style.color = 'transparent';
     }
     
-    menuContainer.appendChild(menuItem);
+    // Add an immediate-response click handler
+    linkDiv.addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      
+      // Close the menu immediately
+      mobileMenuOverlay.style.display = 'none';
+      hamburgerBtn.classList.remove('w--open');
+      
+      // Navigate immediately
+      const targetSection = document.querySelector(this.getAttribute('data-target'));
+      if (targetSection) {
+        const navbarHeight = document.querySelector('.navbar-logo-left-container')?.offsetHeight || 0;
+        const targetPosition = targetSection.getBoundingClientRect().top + window.scrollY;
+        
+        window.scrollTo({
+          top: targetPosition - navbarHeight,
+          behavior: 'smooth'
+        });
+      }
+    });
+    
+    // Add touch handlers specifically for mobile
+    linkDiv.addEventListener('touchstart', function(e) {
+      // Provide visual feedback
+      this.style.opacity = '0.7';
+    }, { passive: true });
+    
+    linkDiv.addEventListener('touchend', function(e) {
+      e.preventDefault(); // Prevent default behavior
+      this.style.opacity = '1';
+      
+      // Close the menu immediately  
+      mobileMenuOverlay.style.display = 'none';
+      hamburgerBtn.classList.remove('w--open');
+      
+      // Navigate immediately
+      const targetSection = document.querySelector(this.getAttribute('data-target'));
+      if (targetSection) {
+        const navbarHeight = document.querySelector('.navbar-logo-left-container')?.offsetHeight || 0;
+        const targetPosition = targetSection.getBoundingClientRect().top + window.scrollY;
+        
+        window.scrollTo({
+          top: targetPosition - navbarHeight,
+          behavior: 'smooth'
+        });
+      }
+    }, { passive: false }); // passive: false allows preventDefault
+    
+    menuContainer.appendChild(linkDiv);
   });
   
-  // Add CTA button
+  // Add CTA button - this is an external link so we'll use a real <a> tag
   const ctaButton = document.createElement('a');
   ctaButton.href = "https://calendly.com/eric-blessedlabs/30min";
   ctaButton.textContent = "Talk to Expert";
   ctaButton.target = "_blank";
+  ctaButton.rel = "noopener noreferrer";
   
-  // Force CTA button styles
+  // Force CTA button styles - centered
   Object.assign(ctaButton.style, {
-    display: 'block',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
     backgroundColor: '#1e5ef3',
     color: 'white',
     fontSize: '18px',
     padding: '15px 30px',
-    margin: '40px 30px',
+    margin: '40px auto',
     textAlign: 'center',
     textDecoration: 'none',
     borderRadius: '100px',
     fontWeight: '600',
     boxShadow: '0 4px 10px rgba(30, 94, 243, 0.3)',
-    border: 'none'
+    border: 'none',
+    maxWidth: '250px',
+    width: '80%',
+    webkitTapHighlightColor: 'transparent' // Remove tap highlighting
   });
   
   menuContainer.appendChild(ctaButton);
@@ -130,7 +203,8 @@ document.addEventListener('DOMContentLoaded', function() {
     cursor: 'pointer',
     zIndex: '100000',
     padding: '10px',
-    display: 'block'
+    display: 'block',
+    webkitTapHighlightColor: 'transparent' // Remove tap highlighting
   });
   
   mobileMenuOverlay.appendChild(closeButton);
@@ -151,55 +225,55 @@ document.addEventListener('DOMContentLoaded', function() {
       100% { background-position: 0% 50%; }
     }
     
-    #bl-mobile-menu-overlay a[href="#ImageGenerator"] {
+    #bl-mobile-menu-overlay [data-target="#ImageGenerator"] {
       animation: blMenuGradient 6s ease-in-out infinite;
+    }
+    
+    /* Global styles to fix double-tap issue */
+    @media (max-width: 991px) {
+      * {
+        -webkit-tap-highlight-color: transparent;
+      }
+      
+      #bl-mobile-menu-overlay div[data-target] {
+        touch-action: manipulation;
+      }
     }
   `;
   document.head.appendChild(styleSheet);
   
-  // Menu open function
-  function openMobileMenu() {
-    console.log("Opening mobile menu");
-    hamburgerBtn.classList.add('w--open');
-    mobileMenuOverlay.style.display = 'block';
-    document.body.style.overflow = 'hidden'; // Prevent scrolling
-  }
-  
-  // Menu close function
-  function closeMobileMenu() {
-    console.log("Closing mobile menu");
-    hamburgerBtn.classList.remove('w--open');
-    mobileMenuOverlay.style.display = 'none';
-    document.body.style.overflow = ''; // Restore scrolling
-  }
-  
-  // Toggle menu function
+  // Toggle menu function - simplified to avoid conflicts
   function toggleMobileMenu(e) {
-    console.log("Toggle menu clicked");
-    if (e) e.preventDefault();
+    if (e) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
     
-    if (mobileMenuOverlay.style.display === 'block') {
-      closeMobileMenu();
+    if (mobileMenuOverlay.style.display === 'flex' || mobileMenuOverlay.style.display === 'block') {
+      // Close the menu
+      mobileMenuOverlay.style.display = 'none';
+      hamburgerBtn.classList.remove('w--open');
     } else {
-      // Position the menu overlay appropriately for fixed navigation
-      const navbarHeight = document.querySelector('.navbar-logo-left-container').offsetHeight || 0;
-      
-      // Set padding to account for navbar height
+      // Open the menu
+      const navbarHeight = document.querySelector('.navbar-logo-left-container')?.offsetHeight || 0;
       mobileMenuOverlay.style.paddingTop = navbarHeight + 'px';
-      
-      openMobileMenu();
+      mobileMenuOverlay.style.display = 'flex';
+      hamburgerBtn.classList.add('w--open');
     }
   }
   
-  // Add event listeners
+  // Add event listeners with both click and touch handlers
   hamburgerBtn.addEventListener('click', toggleMobileMenu);
-  closeButton.addEventListener('click', closeMobileMenu);
+  hamburgerBtn.addEventListener('touchend', function(e) {
+    e.preventDefault();
+    toggleMobileMenu(e);
+  }, { passive: false });
   
-  // Close menu when clicking on links
-  const menuLinks = mobileMenuOverlay.querySelectorAll('a');
-  menuLinks.forEach(function(link) {
-    link.addEventListener('click', closeMobileMenu);
-  });
+  closeButton.addEventListener('click', toggleMobileMenu);
+  closeButton.addEventListener('touchend', function(e) {
+    e.preventDefault();
+    toggleMobileMenu(e);
+  }, { passive: false });
   
   // Only apply mobile menu on mobile devices
   function checkMobile() {
@@ -212,7 +286,8 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     } else {
       // Hide mobile menu on desktop
-      closeMobileMenu();
+      mobileMenuOverlay.style.display = 'none';
+      hamburgerBtn.classList.remove('w--open');
     }
   }
   
@@ -220,6 +295,18 @@ document.addEventListener('DOMContentLoaded', function() {
   checkMobile();
   window.addEventListener('resize', checkMobile);
   
+  // Disable Webflow's native touch delay if possible
+  if (window.Webflow) {
+    try {
+      // Try to disable Webflow's tap delay if it exists
+      if (window.Webflow.env && window.Webflow.env.touch) {
+        window.Webflow.env.touch = 0;
+      }
+    } catch (e) {
+      console.warn("Could not modify Webflow environment:", e);
+    }
+  }
+  
   // Log confirmation
-  console.log("Mobile menu setup complete");
-}); 
+  console.log("Mobile menu setup complete with single-tap fix");
+});

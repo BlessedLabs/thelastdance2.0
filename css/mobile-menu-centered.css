@@ -1,1 +1,53 @@
+/* Mobile Menu Centered - Centers all mobile menu items vertically */
 
+/* Apply these styles only on mobile devices */
+@media screen and (max-width: 991px) {
+  /* Completely disable tap highlight on all elements to fix double-tap */
+  * {
+    -webkit-tap-highlight-color: transparent !important;
+  }
+  
+  /* Extra critical styles for menu */
+  #bl-mobile-menu-overlay,
+  .w-nav-overlay[data-nav-menu-open] {
+    -webkit-touch-callout: none !important;
+    touch-action: manipulation !important;
+  }
+  
+  /* IMPORTANT: Special style for mobile menu using DIVs instead of A tags */
+  #bl-mobile-menu-overlay div[data-target] {
+    color: white !important;
+    cursor: pointer !important;
+    touch-action: manipulation !important;
+  }
+  
+  /* Center container for all mobile menu items */
+  .w-nav-overlay[data-nav-menu-open],
+  .w-nav-menu.w--open,
+  .w-nav-overlay .w-nav-menu,
+  #bl-mobile-menu-overlay,
+  #bl-mobile-menu-container {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding-top: 80px !important; /* Space for the header */
+    padding-bottom: 40px !important;
+    position: fixed !important; /* Keep the menu fixed */
+    z-index: 9999 !important; /* Ensure it's above other content */
+    background-color: rgba(0, 0, 0, 0.9) !important; /* Semi-transparent background */
+  }
+  
+  /* When the menu is closed, make sure it doesn't block content or scrolling */
+  .w-nav-menu:not(.w--open),
+  .w-nav-overlay:not([data-nav-menu-open]),
+  #bl-mobile-menu-overlay[style*="display: none"] {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+    z-index: -1 !important;
+  }
+}

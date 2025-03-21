@@ -153,6 +153,8 @@
   <link href="css/about-services-spacing.css" rel="stylesheet" type="text/css">
   <!-- Hamburger menu positioning on mobile -->
   <link href="css/hamburger-position.css" rel="stylesheet" type="text/css">
+  <!-- Center mobile menu items -->
+  <link href="css/mobile-menu-centered.css" rel="stylesheet" type="text/css">
   <!-- Fix for mobile redirect to Image Generator -->
   <script src="js/prevent-auto-redirect.js"></script>
   <!-- Service worker control to manage caching -->
@@ -217,7 +219,7 @@
         display: block !important;
         visibility: visible !important;
         opacity: 1 !important;
-        position: relative !important;
+        position: relative !important; /* Allow normal scrolling */
         top: 0 !important;
         left: 0 !important;
         right: 0 !important;
@@ -236,7 +238,13 @@
         min-height: 80px !important;
       }
       
-      /* Ensure overlay works properly */
+      /* Ensure all sections remain visible */
+      section {
+        display: block !important;
+        visibility: visible !important;
+      }
+      
+      /* Ensure overlay works properly but doesn't interfere with content when closed */
       .w-nav-overlay {
         display: none !important;
         position: fixed !important;
@@ -248,12 +256,14 @@
         z-index: 1998 !important;
         opacity: 0 !important;
         transition: opacity 0.3s ease-in-out !important;
+        pointer-events: none !important; /* Don't block interaction when closed */
       }
       
       /* Show overlay when menu is open */
       .w-nav-overlay.w--open {
         display: block !important;
         opacity: 1 !important;
+        pointer-events: auto !important; /* Allow interaction when open */
       }
       
       /* X icon for close state */
@@ -360,6 +370,36 @@
       .w-nav-button.w--open .w-icon-nav-menu:before {
         content: "✕" !important;
       }
+      
+      /* CRITICAL: Center mobile menu items when menu is open - OVERLAY ONLY */
+      #bl-mobile-menu-overlay,
+      .w-nav-overlay[data-nav-menu-open],
+      .w-nav-menu.w--open {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        position: fixed !important;
+        z-index: 9999 !important;
+        background-color: rgba(0, 0, 0, 0.9) !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+      }
+      
+      #bl-mobile-menu-container a,
+      .w-nav-overlay[data-nav-menu-open] a,
+      .w-nav-menu.w--open a {
+        text-align: center !important;
+        width: 100% !important;
+        max-width: 250px !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        justify-content: center !important;
+        display: flex !important;
+        align-items: center !important;
+      }
     }
   </style>
   <!-- AI title split for mobile (AI Image above Generator) -->
@@ -422,8 +462,7 @@
               <h1 class="h1-heading">Empowering Businesses with AI Driven Innovation and Strategic Solutions</h1>
               <p class="subheading">We are an AI studio revolutionizing industries with cutting-edge solutions.</p>
               <div class="button-group align-center">
-                <a href="https://calendly.com/eric-blessedlabs/30min?back=1&amp;month=2025-03" target="_blank" class="button w-button">Talk to Expert</a>
-                <a href="#AboutUs" class="button secondary-button w-button">Learn more</a>
+                <a href="https://calendly.com/eric-blessedlabs/30min?back=1&amp;month=2025-03" target="_blank" class="button w-button" style="max-width: 220px; margin: 0 auto;">Talk to Expert</a>
               </div>
             </div>
           </div>
@@ -519,6 +558,33 @@
       <!-- Load Pixelplayhouse assets -->
       <script type="module" src="assets/index-C22EvlyQ.js"></script>
       <link rel="stylesheet" href="assets/index-5iTVPTBm.css">
+      
+      <!-- Custom animation for the Generate button -->
+      <style>
+        /* Add animated gradient to the Generate button */
+        #root button:last-of-type {
+          background: linear-gradient(-45deg, #1e5ef3, #0400ff, #4a00e0, #8e2de2);
+          background-size: 400% 400%;
+          color: white !important;
+          animation: gradient 15s ease infinite !important;
+          font-weight: 600;
+          transition: all 0.3s ease;
+          border: none !important;
+        }
+        
+        /* Gradient animation keyframes */
+        @keyframes gradient {
+          0% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+          100% { background-position: 0% 50%; }
+        }
+        
+        /* Hover effect */
+        #root button:last-of-type:hover {
+          transform: scale(1.05);
+          box-shadow: 0 0 15px rgba(30, 94, 243, 0.5);
+        }
+      </style>
       
       <!-- Custom size adjustments for text elements -->
       <style>
