@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const mobileMenuOverlay = document.createElement('div');
   mobileMenuOverlay.id = 'bl-mobile-menu-overlay';
   
-  // Force overlay styles with !important - centered content
+  // Force overlay styles with !important
   Object.assign(mobileMenuOverlay.style, {
     position: 'fixed',
     top: '0',
@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const menuContainer = document.createElement('div');
   menuContainer.id = 'bl-mobile-menu-container';
   
-  // Force styles for menu container - centered vertically and horizontally
+  // Force styles for menu container
   Object.assign(menuContainer.style, {
     maxWidth: '100%',
     width: '100%',
@@ -61,24 +61,23 @@ document.addEventListener('DOMContentLoaded', function() {
     { text: 'Contact', url: '#Contact' }
   ];
   
-  // ===== COMPLETELY NEW LINK CREATION APPROACH =====
-  // Using direct, immediate navigation with no delays
-  
+  // Add each menu item
   menuItems.forEach(function(item) {
-    // Create a div wrapper instead of an <a> tag to avoid browser tap behavior
-    const linkDiv = document.createElement('div');
+    // Create button element instead of a link
+    const menuButton = document.createElement('button');
+    menuButton.type = 'button';
+    menuButton.dataset.target = item.url;
+    menuButton.innerHTML = item.text;
     
-    // Set a data attribute for the target
-    linkDiv.setAttribute('data-target', item.url);
-    
-    // Force link styles - centered horizontally 
-    Object.assign(linkDiv.style, {
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
+    // Force link styles
+    Object.assign(menuButton.style, {
+      display: 'block',
+      backgroundColor: 'transparent',
+      border: 'none',
       color: 'white',
       fontSize: '24px',
       padding: '20px 30px',
+      textDecoration: 'none',
       borderBottom: '1px solid rgba(255, 255, 255, 0.1)',
       margin: '0 auto',
       fontWeight: '500',
@@ -86,88 +85,42 @@ document.addEventListener('DOMContentLoaded', function() {
       maxWidth: '250px',
       boxSizing: 'border-box',
       textAlign: 'center',
-      cursor: 'pointer', // Show clickable cursor
-      userSelect: 'none', // Prevent text selection
-      webkitTapHighlightColor: 'transparent' // Remove tap highlighting
+      cursor: 'pointer'
     });
     
-    // Set the inner text
-    linkDiv.textContent = item.text;
-    
-    // Special styling for Pixel Playground
+    // Simple white styling for Pixel Playground that won't break touch events
     if (item.isSpecial) {
-      linkDiv.style.background = 'linear-gradient(-45deg, #3f6eff, #4a00e0, #00d4ff, #2e5ef3)';
-      linkDiv.style.backgroundSize = '200% auto';
-      linkDiv.style.webkitBackgroundClip = 'text';
-      linkDiv.style.backgroundClip = 'text';
-      linkDiv.style.webkitTextFillColor = 'transparent';
-      linkDiv.style.color = 'transparent';
+      menuButton.style.color = 'white';
+      menuButton.style.fontWeight = '600'; // Slightly bolder than other items
     }
     
-    // Add an immediate-response click handler
-    linkDiv.addEventListener('click', function(e) {
-      e.preventDefault();
-      e.stopPropagation();
+    // Use a direct onclick attribute for immediate response on mobile
+    menuButton.setAttribute('onclick', `
+      // Close the menu
+      document.getElementById('bl-mobile-menu-overlay').style.display = 'none';
+      document.querySelector('.menu-button, .w-nav-button').classList.remove('w--open');
       
-      // Close the menu immediately
-      mobileMenuOverlay.style.display = 'none';
-      hamburgerBtn.classList.remove('w--open');
-      
-      // Navigate immediately
-      const targetSection = document.querySelector(this.getAttribute('data-target'));
-      if (targetSection) {
+      // Navigate to the section
+      const section = document.querySelector('${item.url}');
+      if (section) {
         const navbarHeight = document.querySelector('.navbar-logo-left-container')?.offsetHeight || 0;
-        const targetPosition = targetSection.getBoundingClientRect().top + window.scrollY;
-        
-        window.scrollTo({
-          top: targetPosition - navbarHeight,
-          behavior: 'smooth'
-        });
+        const scrollPosition = section.getBoundingClientRect().top + window.scrollY - navbarHeight;
+        window.scrollTo({top: scrollPosition, behavior: 'smooth'});
       }
-    });
+    `);
     
-    // Add touch handlers specifically for mobile
-    linkDiv.addEventListener('touchstart', function(e) {
-      // Provide visual feedback
-      this.style.opacity = '0.7';
-    }, { passive: true });
-    
-    linkDiv.addEventListener('touchend', function(e) {
-      e.preventDefault(); // Prevent default behavior
-      this.style.opacity = '1';
-      
-      // Close the menu immediately  
-      mobileMenuOverlay.style.display = 'none';
-      hamburgerBtn.classList.remove('w--open');
-      
-      // Navigate immediately
-      const targetSection = document.querySelector(this.getAttribute('data-target'));
-      if (targetSection) {
-        const navbarHeight = document.querySelector('.navbar-logo-left-container')?.offsetHeight || 0;
-        const targetPosition = targetSection.getBoundingClientRect().top + window.scrollY;
-        
-        window.scrollTo({
-          top: targetPosition - navbarHeight,
-          behavior: 'smooth'
-        });
-      }
-    }, { passive: false }); // passive: false allows preventDefault
-    
-    menuContainer.appendChild(linkDiv);
+    menuContainer.appendChild(menuButton);
   });
   
-  // Add CTA button - this is an external link so we'll use a real <a> tag
+  // Add CTA button as an anchor
   const ctaButton = document.createElement('a');
   ctaButton.href = "https://calendly.com/eric-blessedlabs/30min";
   ctaButton.textContent = "Talk to Expert";
   ctaButton.target = "_blank";
-  ctaButton.rel = "noopener noreferrer";
   
-  // Force CTA button styles - centered
+  // Force CTA button styles
   Object.assign(ctaButton.style, {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
+    display: 'block',
     backgroundColor: '#1e5ef3',
     color: 'white',
     fontSize: '18px',
@@ -180,8 +133,7 @@ document.addEventListener('DOMContentLoaded', function() {
     boxShadow: '0 4px 10px rgba(30, 94, 243, 0.3)',
     border: 'none',
     maxWidth: '250px',
-    width: '80%',
-    webkitTapHighlightColor: 'transparent' // Remove tap highlighting
+    width: '80%'
   });
   
   menuContainer.appendChild(ctaButton);
@@ -203,9 +155,14 @@ document.addEventListener('DOMContentLoaded', function() {
     cursor: 'pointer',
     zIndex: '100000',
     padding: '10px',
-    display: 'block',
-    webkitTapHighlightColor: 'transparent' // Remove tap highlighting
+    display: 'block'
   });
+  
+  // Add onclick handler to close button
+  closeButton.setAttribute('onclick', `
+    document.getElementById('bl-mobile-menu-overlay').style.display = 'none';
+    document.querySelector('.menu-button, .w-nav-button').classList.remove('w--open');
+  `);
   
   mobileMenuOverlay.appendChild(closeButton);
   
@@ -217,63 +174,38 @@ document.addEventListener('DOMContentLoaded', function() {
   // Add necessary keyframes for animation
   const styleSheet = document.createElement('style');
   styleSheet.textContent = `
-    @keyframes blMenuGradient {
-      0% { background-position: 0% 50%; }
-      25% { background-position: 50% 25%; }
-      50% { background-position: 100% 50%; }
-      75% { background-position: 50% 75%; }
-      100% { background-position: 0% 50%; }
+    /* Animation removed for better touch reliability */
+    
+    /* Special styling for mobile Pixel Playground button - white text only */
+    #bl-mobile-menu-overlay button[data-target="#ImageGenerator"] {
+      color: white;
+      font-weight: 600;
     }
     
-    #bl-mobile-menu-overlay [data-target="#ImageGenerator"] {
-      animation: blMenuGradient 6s ease-in-out infinite;
-    }
-    
-    /* Global styles to fix double-tap issue */
+    /* Fix any potential tap delay on mobile devices */
     @media (max-width: 991px) {
-      * {
+      #bl-mobile-menu-overlay button {
         -webkit-tap-highlight-color: transparent;
-      }
-      
-      #bl-mobile-menu-overlay div[data-target] {
         touch-action: manipulation;
       }
     }
   `;
   document.head.appendChild(styleSheet);
   
-  // Toggle menu function - simplified to avoid conflicts
-  function toggleMobileMenu(e) {
-    if (e) {
-      e.preventDefault();
-      e.stopPropagation();
-    }
+  // Set up the hamburger button with an onclick handler
+  hamburgerBtn.setAttribute('onclick', `
+    const overlay = document.getElementById('bl-mobile-menu-overlay');
     
-    if (mobileMenuOverlay.style.display === 'flex' || mobileMenuOverlay.style.display === 'block') {
-      // Close the menu
-      mobileMenuOverlay.style.display = 'none';
-      hamburgerBtn.classList.remove('w--open');
+    if (overlay.style.display === 'flex' || overlay.style.display === 'block') {
+      overlay.style.display = 'none';
+      this.classList.remove('w--open');
     } else {
-      // Open the menu
       const navbarHeight = document.querySelector('.navbar-logo-left-container')?.offsetHeight || 0;
-      mobileMenuOverlay.style.paddingTop = navbarHeight + 'px';
-      mobileMenuOverlay.style.display = 'flex';
-      hamburgerBtn.classList.add('w--open');
+      overlay.style.paddingTop = navbarHeight + 'px';
+      overlay.style.display = 'flex';
+      this.classList.add('w--open');
     }
-  }
-  
-  // Add event listeners with both click and touch handlers
-  hamburgerBtn.addEventListener('click', toggleMobileMenu);
-  hamburgerBtn.addEventListener('touchend', function(e) {
-    e.preventDefault();
-    toggleMobileMenu(e);
-  }, { passive: false });
-  
-  closeButton.addEventListener('click', toggleMobileMenu);
-  closeButton.addEventListener('touchend', function(e) {
-    e.preventDefault();
-    toggleMobileMenu(e);
-  }, { passive: false });
+  `);
   
   // Only apply mobile menu on mobile devices
   function checkMobile() {
@@ -295,18 +227,6 @@ document.addEventListener('DOMContentLoaded', function() {
   checkMobile();
   window.addEventListener('resize', checkMobile);
   
-  // Disable Webflow's native touch delay if possible
-  if (window.Webflow) {
-    try {
-      // Try to disable Webflow's tap delay if it exists
-      if (window.Webflow.env && window.Webflow.env.touch) {
-        window.Webflow.env.touch = 0;
-      }
-    } catch (e) {
-      console.warn("Could not modify Webflow environment:", e);
-    }
-  }
-  
   // Log confirmation
-  console.log("Mobile menu setup complete with single-tap fix");
+  console.log("Mobile menu setup complete");
 });
