@@ -1,7 +1,8 @@
 /* 
- * STRONG Desktop-only AI Image Generator text position adjustment
+ * STRONG Desktop-only AI Image Generator text position adjustment (Updated March 21, 2025)
  * Aggressively moves the text left to make "OR" and "generator" text fully visible
  * Positions text directly above and close to "Powered by Blessed Labs"
+ * Forces text to be positioned much lower, closer to the "Powered by" text
  */
 
 /* Force the AI Generator text to move left on desktop */
@@ -13,9 +14,9 @@
   html #root h1 span:not(.absolute) {
     /* Very aggressive left positioning */
     position: relative !important;
-    transform: translateX(-40px) translateY(35px) !important; /* More downward adjustment */
+    transform: translateX(-40px) translateY(70px) !important; /* Much more downward adjustment */
     margin-right: -40px !important;
-    top: 15px !important; /* More downward positioning */
+    top: 30px !important; /* Much more downward positioning */
     margin-bottom: 0 !important; /* No space below */
     /* Force override any other styles */
     text-align: center !important;
@@ -65,7 +66,7 @@
 @media screen and (min-width: 992px) {
   html body #root h1 span:not(.absolute) {
     /* Move even more left on larger screens and increase font size further */
-    transform: translateX(-50px) translateY(35px) !important; /* More downward positioning */
+    transform: translateX(-50px) translateY(70px) !important; /* Much more downward positioning */
     margin-right: -50px !important;
     font-size: 5rem !important; /* Even bigger text on larger screens */
   }
