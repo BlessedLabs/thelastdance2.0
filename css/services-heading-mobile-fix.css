@@ -1,0 +1,74 @@
+/* Mobile Services Heading Fix
+   This CSS makes the "Transform your business with AI" heading font size
+   match the "About Us" heading font size on mobile devices only */
+
+/* Only apply these styles on mobile devices */
+@media screen and (max-width: 767px) and (min-width: 480px) {
+  /* Target the Services section heading on medium-sized mobile devices */
+  #Services .heading strong#serveme {
+    font-size: 40px !important; /* Match About Us heading size on medium mobile */
+    display: inline-block;
+    line-height: 1.2;
+  }
+  
+  /* Ensure the entire heading uses the same size */
+  #Services .heading {
+    font-size: 40px !important;
+    line-height: 1.2;
+    margin-bottom: 5px !important; /* Reduce gap between heading and subheading */
+  }
+  
+  /* Match description text size with About Us description on medium mobile */
+  #Services p.subheading {
+    font-size: 16px !important; /* Match About Us subheading size on medium mobile */
+    line-height: 1.6 !important;
+    margin-top: 0 !important; /* Remove top margin */
+    margin-bottom: 10px !important; /* Add small margin at bottom before image */
+  }
+  
+  /* Reduce spacing between heading container and grid of images */
+  #Services .container .grid-layout:first-child {
+    margin-bottom: 10px !important; /* Reduce bottom margin */
+  }
+  
+  /* Remove top margin from image grid to close gap */
+  #Services .utility-margin-top-3rem {
+    margin-top: 0 !important; /* Remove the default 3rem margin */
+  }
+}
+
+/* Target small mobile devices */
+@media screen and (max-width: 479px) {
+  /* Target the Services section heading on small mobile devices */
+  #Services .heading strong#serveme {
+    font-size: 36px !important; /* Match About Us heading size on small mobile */
+    display: inline-block;
+    line-height: 1.2;
+  }
+  
+  /* Ensure the entire heading uses the same size */
+  #Services .heading {
+    font-size: 36px !important;
+    line-height: 1.2;
+    margin-bottom: 5px !important; /* Reduce gap between heading and subheading */
+  }
+  
+  /* Match description text size with About Us description on small mobile */
+  #Services p.subheading {
+    font-size: 16px !important; /* Match About Us subheading size on small mobile */
+    line-height: 1.5 !important;
+    padding: 0 15px !important; /* Match About Us subheading padding */
+    margin-top: 0 !important; /* Remove top margin */
+    margin-bottom: 10px !important; /* Add small margin at bottom before image */
+  }
+  
+  /* Reduce spacing between heading container and grid of images */
+  #Services .container .grid-layout:first-child {
+    margin-bottom: 5px !important; /* Reduce bottom margin even more on small screens */
+  }
+  
+  /* Remove top margin from image grid to close gap */
+  #Services .utility-margin-top-3rem {
+    margin-top: 0 !important; /* Remove the default 3rem margin */
+  }
+}

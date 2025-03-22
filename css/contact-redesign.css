@@ -38,6 +38,10 @@
   grid-template-columns: 1fr 1fr;
   gap: 40px;
   align-items: center;
+  width: 100% !important;
+  max-width: 100% !important;
+  visibility: visible !important;
+  opacity: 1 !important;
 }
 
 /* Left Side - Image Container */
@@ -128,11 +132,21 @@
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   margin-top: 5px;
   text-align: center;
+  
+  /* Remove focus outline/ring */
+  outline: none !important;
+  -webkit-tap-highlight-color: transparent !important;
 }
 
 .button-2.w-button:hover {
   transform: translateY(-2px);
   box-shadow: 0 5px 15px rgba(30, 94, 243, 0.4);
+}
+
+/* Focus state - remove outline but maintain accessibility */
+.button-2.w-button:focus {
+  outline: none !important;
+  box-shadow: 0 0 0 0 transparent !important;
 }
 
 /* Mobile Responsive Adjustments */

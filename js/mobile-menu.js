@@ -53,20 +53,58 @@ document.addEventListener('DOMContentLoaded', function() {
   });
   
   // Define the menu links exactly as shown in desktop
+  // For mobile navigation, always use absolute URLs to ensure proper navigation
+  
+  // Check current page - useful for debugging
+  const pathname = window.location.pathname;
+  console.log("Current page path:", pathname);
+  
+  // Force paths to always be explicit with absolute URLs
+  // This fixes navigation on sub-pages like our-story.html
+  const baseUrl = window.location.origin + window.location.pathname.substring(0, window.location.pathname.lastIndexOf('/') + 1);
+  console.log("Base URL for navigation:", baseUrl);
+  
   const menuItems = [
-    { text: 'Home', url: '#Home' },
-    { text: 'Services', url: '#serveme' },
-    { text: 'About Us', url: '#AboutUs' },
-    { text: 'Pixel Playground', url: '#ImageGenerator', isSpecial: true },
-    { text: 'Contact', url: '#Contact' }
+    { 
+      text: 'Home', 
+      url: 'index.html#Home' 
+    },
+    { 
+      text: 'Services', 
+      url: 'index.html#serveme' 
+    },
+    { 
+      text: 'Pixel Playground', 
+      url: 'index.html#ImageGenerator', 
+      isSpecial: true 
+    },
+    { 
+      text: 'Our Story', 
+      url: 'our-story.html' 
+    },
+    { 
+      text: 'Contact', 
+      url: 'index.html#Contact' 
+    }
   ];
+  
+  console.log("Menu items defined with explicit paths");
   
   // Add each menu item
   menuItems.forEach(function(item) {
     // Create button element instead of a link
     const menuButton = document.createElement('button');
     menuButton.type = 'button';
-    menuButton.dataset.target = item.url;
+    
+    // Explicitly set the data-target attribute with the full URL
+    menuButton.setAttribute('data-target', item.url);
+    
+    // Set ID for debugging purposes
+    menuButton.id = `mobile-menu-${item.text.toLowerCase().replace(/\s+/g, '-')}`;
+    
+    // Add debug info to console
+    console.log(`Creating menu button: ${item.text} => ${item.url}`);
+    
     menuButton.innerHTML = item.text;
     
     // Force link styles
@@ -94,20 +132,19 @@ document.addEventListener('DOMContentLoaded', function() {
       menuButton.style.fontWeight = '600'; // Slightly bolder than other items
     }
     
-    // Use a direct onclick attribute for immediate response on mobile
+    // Use a direct, simple onclick handler - most reliable for mobile
     menuButton.setAttribute('onclick', `
-      // Close the menu
+      // First close the menu
       document.getElementById('bl-mobile-menu-overlay').style.display = 'none';
       document.querySelector('.menu-button, .w-nav-button').classList.remove('w--open');
+      document.body.style.overflow = '';
       
-      // Navigate to the section
-      const section = document.querySelector('${item.url}');
-      if (section) {
-        const navbarHeight = document.querySelector('.navbar-logo-left-container')?.offsetHeight || 0;
-        const scrollPosition = section.getBoundingClientRect().top + window.scrollY - navbarHeight;
-        window.scrollTo({top: scrollPosition, behavior: 'smooth'});
-      }
+      // Then navigate
+      window.location.href = '${item.url}';
     `);
+    
+    // Make sure buttons are visibly clickable
+    menuButton.style.cursor = 'pointer';
     
     menuContainer.appendChild(menuButton);
   });
@@ -115,7 +152,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // Add CTA button as an anchor
   const ctaButton = document.createElement('a');
   ctaButton.href = "https://calendly.com/eric-blessedlabs/30min";
-  ctaButton.textContent = "Talk to Expert";
+  ctaButton.textContent = "Let's Build Together";
   ctaButton.target = "_blank";
   
   // Force CTA button styles
@@ -162,6 +199,7 @@ document.addEventListener('DOMContentLoaded', function() {
   closeButton.setAttribute('onclick', `
     document.getElementById('bl-mobile-menu-overlay').style.display = 'none';
     document.querySelector('.menu-button, .w-nav-button').classList.remove('w--open');
+    document.body.style.overflow = ''; // Restore scrolling on body
   `);
   
   mobileMenuOverlay.appendChild(closeButton);
@@ -171,41 +209,64 @@ document.addEventListener('DOMContentLoaded', function() {
   
   console.log("Mobile menu created and added to document");
   
-  // Add necessary keyframes for animation
+  // Add necessary styles for mobile menu
   const styleSheet = document.createElement('style');
   styleSheet.textContent = `
-    /* Animation removed for better touch reliability */
-    
     /* Special styling for mobile Pixel Playground button - white text only */
-    #bl-mobile-menu-overlay button[data-target="#ImageGenerator"] {
-      color: white;
-      font-weight: 600;
+    #bl-mobile-menu-overlay button#mobile-menu-pixel-playground {
+      color: white !important;
+      font-weight: 600 !important;
     }
     
-    /* Fix any potential tap delay on mobile devices */
+    /* Improved mobile touch handling */
     @media (max-width: 991px) {
+      /* Fix tap delay issues on mobile */
       #bl-mobile-menu-overlay button {
-        -webkit-tap-highlight-color: transparent;
-        touch-action: manipulation;
+        -webkit-tap-highlight-color: transparent !important;
+        touch-action: manipulation !important;
+        cursor: pointer !important;
+      }
+      
+      /* Additional spacing for better touch targets */
+      #bl-mobile-menu-overlay button {
+        padding: 20px 30px !important;
+        margin: 5px auto !important;
+      }
+      
+      /* Ensure menu is properly sized for interaction */
+      #bl-mobile-menu-overlay {
+        width: 100% !important;
+        height: 100% !important;
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        z-index: 99999 !important;
       }
     }
   `;
   document.head.appendChild(styleSheet);
   
-  // Set up the hamburger button with an onclick handler
+  // Revert to simpler hamburger button handling
+  // Direct onclick attribute for immediate response
   hamburgerBtn.setAttribute('onclick', `
     const overlay = document.getElementById('bl-mobile-menu-overlay');
     
     if (overlay.style.display === 'flex' || overlay.style.display === 'block') {
       overlay.style.display = 'none';
       this.classList.remove('w--open');
+      document.body.style.overflow = ''; // Restore scrolling on body
     } else {
       const navbarHeight = document.querySelector('.navbar-logo-left-container')?.offsetHeight || 0;
       overlay.style.paddingTop = navbarHeight + 'px';
       overlay.style.display = 'flex';
       this.classList.add('w--open');
+      document.body.style.overflow = 'hidden'; // Prevent scrolling while menu is open
     }
   `);
+  
+  // Make sure the button is clickable
+  hamburgerBtn.style.cursor = 'pointer';
+  hamburgerBtn.style.pointerEvents = 'auto';
   
   // Only apply mobile menu on mobile devices
   function checkMobile() {
@@ -215,6 +276,15 @@ document.addEventListener('DOMContentLoaded', function() {
         hamburgerBtn.style.display = 'block';
         hamburgerBtn.style.visibility = 'visible';
         hamburgerBtn.style.opacity = '1';
+        hamburgerBtn.style.zIndex = '9999';
+        
+        // Make sure the menu is properly set up for the current page
+        console.log("Current page: ", window.location.pathname);
+        console.log("Mobile menu is active");
+        
+        // Ensure we can click the hamburger menu
+        hamburgerBtn.style.pointerEvents = 'auto';
+        hamburgerBtn.style.cursor = 'pointer';
       }
     } else {
       // Hide mobile menu on desktop

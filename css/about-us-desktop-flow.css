@@ -1,0 +1,21 @@
+/* Make About Us description flow as one continuous paragraph on desktop only */
+
+@media screen and (min-width: 768px) {
+  /* Target paragraph elements within the subheading */
+  #AboutUs .subheading p {
+    display: inline; /* Make paragraphs flow as inline text */
+    margin: 0; /* Remove paragraph margins */
+    padding: 0; /* Remove any padding */
+  }
+  
+  /* Add a small space between inline paragraphs */
+  #AboutUs .subheading p:after {
+    content: " "; /* Add a space after each paragraph */
+  }
+  
+  /* Ensure container remains centered */
+  #AboutUs .subheading {
+    text-align: center;
+    display: block;
+  }
+} 

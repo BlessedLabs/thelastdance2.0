@@ -1,0 +1,160 @@
+/* Our Story Page - Enhanced Formatting and Layout 
+   This stylesheet improves readability and visual appeal of the Our Story page
+   on both mobile and desktop devices */
+
+/* Main section container - ensure proper spacing */
+#OurStory.section {
+  background-color: #04060f; /* Match site theme */
+  color: #ffffff;
+  padding: 70px 0;
+}
+
+/* Main heading container - full width with proper margins */
+#OurStory .w-layout-grid.grid-layout {
+  display: block; /* Override grid to ensure full width */
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Content container - full width */
+#OurStory .grid-layout > div {
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* Main heading - BOLD and CAPITALIZED */
+#OurStory .heading {
+  font-size: 36px; /* Reduced from 40px */
+  margin-bottom: 30px;
+  color: #ffffff;
+  font-weight: 700; /* Extra bold */
+  text-align: center;
+  text-transform: uppercase; /* Capitalized */
+  letter-spacing: 1px;
+}
+
+/* Introduction text - improved readability */
+#OurStory .subheading {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 15px; /* Reduced from 16px */
+  line-height: 1.7;
+  text-align: center;
+  margin: 0 auto 60px; /* Extra margin below */
+  max-width: 100%; /* Full width container */
+}
+
+/* Additional sections container */
+#OurStory .utility-margin-top-3rem {
+  max-width: 1000px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding: 0 20px;
+}
+
+/* Section headings - BOLD and CAPITALIZED */
+#OurStory .h4-heading {
+  font-size: 24px; /* Reduced from 28px */
+  margin-top: 50px; /* More space above */
+  margin-bottom: 25px; /* More space below */
+  color: #ffffff;
+  font-weight: 700; /* Extra bold */
+  text-align: center;
+  text-transform: uppercase; /* Capitalized */
+  letter-spacing: 0.5px;
+}
+
+/* First heading needs proper spacing */
+#OurStory .h4-heading:first-of-type {
+  margin-top: 0;
+}
+
+/* Improve spacing between paragraphs and headings */
+#OurStory p + .h4-heading {
+  margin-top: 50px; /* Extra space between paragraph and next heading */
+}
+
+/* Paragraphs - improved readability */
+#OurStory p {
+  color: rgba(255, 255, 255, 0.9); /* Increased contrast */
+  font-size: 15px; /* Reduced from 16px */
+  line-height: 1.8; /* Increased line height */
+  margin-bottom: 20px; /* Consistent paragraph spacing */
+  text-align: center; /* Changed from left to center */
+}
+
+/* Responsive adjustments for tablets */
+@media screen and (max-width: 767px) {
+  #OurStory.section {
+    padding: 50px 0;
+  }
+  
+  #OurStory .heading {
+    font-size: 32px; /* Reduced from 36px */
+  }
+  
+  #OurStory .h4-heading {
+    font-size: 22px; /* Reduced from 25px */
+    margin-top: 40px;
+    margin-bottom: 20px;
+  }
+  
+  #OurStory .subheading {
+    font-size: 15px; /* Increased from 14px */
+    line-height: 1.7;
+    margin-bottom: 40px;
+  }
+  
+  #OurStory p {
+    font-size: 15px; /* Increased from 14px */
+    line-height: 1.7;
+    text-align: center; /* Changed from left to center */
+  }
+  
+  /* Adjust spacing between paragraphs and headings on mobile */
+  #OurStory p + .h4-heading {
+    margin-top: 40px;
+  }
+}
+
+/* Responsive adjustments for mobile */
+@media screen and (max-width: 479px) {
+  #OurStory.section {
+    padding: 40px 0;
+  }
+  
+  #OurStory .w-layout-grid.grid-layout,
+  #OurStory .utility-margin-top-3rem {
+    padding: 0 15px; /* Reduced side padding on very small screens */
+  }
+  
+  #OurStory .heading {
+    font-size: 28px; /* Reduced from 32px */
+    margin-bottom: 20px;
+  }
+  
+  #OurStory .subheading {
+    font-size: 15px; /* Increased from 14px */
+    line-height: 1.6;
+    margin-bottom: 30px;
+  }
+  
+  #OurStory .h4-heading {
+    font-size: 20px; /* Reduced from 22px */
+    margin-top: 35px;
+    margin-bottom: 15px;
+  }
+  
+  #OurStory p {
+    font-size: 15px; /* Increased from 14px */
+    line-height: 1.6;
+    margin-bottom: 15px;
+    text-align: center; /* Changed from left to center */
+  }
+  
+  /* Adjust spacing between paragraphs and headings on small mobile */
+  #OurStory p + .h4-heading {
+    margin-top: 35px;
+  }
+} 

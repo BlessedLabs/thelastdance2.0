@@ -1,8 +1,27 @@
 /* Contact Image Size Increase - ONLY affects the image size */
 
-/* Desktop image size increase */
+/* Desktop image size increase and visibility fix */
 .contact-image-container {
   height: 500px !important; /* Increased from 450px to 500px */
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow: hidden !important;
+  border-radius: 12px !important;
+  position: relative !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Ensure the image is visible */
+.contact-image-container img {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
 }
 
 /* Mobile image size increase */

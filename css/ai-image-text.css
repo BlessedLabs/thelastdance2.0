@@ -1,0 +1,87 @@
+/* AI Image Generator Text Styling
+   This CSS ensures consistent text layout across all devices */
+
+/* Ensure "AI Image Generator" always appears on one line */
+#root h1 span:not(.absolute) {
+  white-space: nowrap !important; /* Prevent line breaks */
+  display: block !important; /* Make the entire title block-level for better control */
+  text-align: center !important; /* Center the text on desktop */
+  font-weight: 700 !important; /* Consistent font weight */
+  letter-spacing: -0.04em !important; /* Tighter letter spacing to reduce width */
+  transform: none !important; /* Remove any transformations */
+  line-height: normal !important; /* Standard line height */
+  width: 95% !important; /* Constrain width */
+  margin: 0 auto !important; /* Center horizontally on desktop */
+  font-size: 95% !important; /* Slightly reduce font size */
+  overflow: visible !important; /* Ensure text is visible */
+}
+
+/* Style for elements within the title (like "AI" if styled differently) */
+#root h1 span:not(.absolute) strong,
+#root h1 span:not(.absolute) b,
+#root h1 span:not(.absolute) [class*="font-bold"] {
+  display: inline !important; /* Keep these inline within the title */
+  transform: none !important; /* Ensure no transformations */
+  letter-spacing: -0.04em !important; /* Match letter spacing */
+}
+
+/* Make "Powered by Blessed Labs" slightly smaller across all devices */
+#root p.text-lg {
+  font-size: 1.3rem !important; /* Standard size for desktop */
+  text-align: center !important; /* Ensure centered text on desktop */
+  margin-top: 0.25rem !important; /* Reduced spacing from title */
+  margin-bottom: 0 !important; /* Ensure no bottom margin */
+}
+
+/* Further ensure stars are hidden on mobile */
+@media screen and (max-width: 767px) {
+  /* Hide all sparkle and star elements */
+  #root span.absolute,
+  #root div > span.absolute,
+  #root .rounded-full.absolute,
+  #root .animate-spin,
+  #root .animate-pulse,
+  #root h1 + span.absolute,
+  #root h1 > span.absolute,
+  #root h1 ~ span.absolute,
+  #root span[class*="star"],
+  #root [class*="sparkle"],
+  #root svg[class*="star"],
+  #root svg[class*="sparkle"] {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+  }
+
+  /* Mobile text alignment (left instead of center) */
+  #root h1 span:not(.absolute) {
+    font-size: 85% !important; /* Smaller font size on mobile */
+    letter-spacing: -0.06em !important; /* Even tighter spacing on mobile */
+    width: auto !important; /* Adjust width based on content */
+    max-width: 100% !important; /* Maximum width constraint */
+    margin: 0 !important; /* Remove auto margins */
+    padding-left: 5px !important; /* Less left padding */
+    text-align: left !important; /* Left align on mobile */
+    left: 0 !important; /* Push all the way left */
+    position: relative !important; /* Enable positioning */
+    transform-origin: left center !important; /* Transform from left side */
+  }
+  
+  /* Left align the subtitle on mobile */
+  #root p.text-lg {
+    font-size: 1rem !important; /* Smaller on mobile */
+    text-align: left !important; /* Left align to match title */
+    padding-left: 5px !important; /* Match title padding */
+  }
+  
+  /* Force title container to have proper positioning */
+  #root h1 {
+    position: relative !important;
+    text-align: left !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    left: 0 !important;
+  }
+} 

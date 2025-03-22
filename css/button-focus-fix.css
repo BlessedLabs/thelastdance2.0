@@ -1,0 +1,34 @@
+/* Remove focus outlines/rings from all buttons site-wide */
+
+/* Target all button elements and links that appear as buttons */
+button,
+.button,
+.w-button,
+a.button,
+a.w-button,
+.button-2,
+a.button-2 {
+  /* Remove focus outline/ring */
+  outline: none !important;
+  -webkit-tap-highlight-color: transparent !important;
+}
+
+/* Focus state - remove outline but maintain accessibility */
+button:focus,
+.button:focus,
+.w-button:focus,
+a.button:focus,
+a.w-button:focus,
+.button-2:focus,
+a.button-2:focus {
+  outline: none !important;
+  box-shadow: 0 0 0 0 transparent !important;
+}
+
+/* Apply to all form elements too for consistency */
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none !important;
+  box-shadow: 0 0 0 0 transparent !important;
+} 

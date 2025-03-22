@@ -1,0 +1,18 @@
+/* Reduce width of the Talk to Expert button */
+
+.button-group .button.w-button {
+  width: auto !important; /* Override any fixed width */
+  padding-left: 30px !important;
+  padding-right: 30px !important;
+  min-width: 150px !important;
+  max-width: 200px !important;
+}
+
+/* Ensure mobile compatibility */
+@media screen and (max-width: 767px) {
+  .button-group .button.w-button {
+    padding-left: 25px !important;
+    padding-right: 25px !important;
+    min-width: 140px !important;
+  }
+} 

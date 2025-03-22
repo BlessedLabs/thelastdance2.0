@@ -36,3 +36,6 @@
 - STEP 2: Lastly, give the user the command to push to GitHub (in a separate code block again)
 - FOLLOW THESE STEPS IN ORDER. DO NOT SKIP ANY STEPS!!
 
+# APPLYING CHANGES FROM COLLEAGUE'S MESSAGE
+- STEP 1: Add the our-story.html file to the Git repository using the command `git add our-story.html`
+

@@ -1,33 +1,28 @@
-/* MOBILE-ONLY spinning star removal */
+/* Spinning star removal for ALL devices - updated to apply on both mobile and desktop */
 
-/* These rules ONLY apply to mobile devices */
-@media (max-width: 767px) {
-  /* Direct targeted selectors for the spinning elements */
-  #root span.absolute.rounded-full.blur-lg,
-  #root span.absolute.rounded-full.animate-pulse,
-  #root span.absolute.w-4.h-4,
-  #root span.absolute.w-5.h-5,
-  #root span.absolute[class*="animate"],
-  #root svg.absolute.animate-spin,
-  #root .animate-spin,
-  #root .animate-pulse {
-    display: none !important;
-    visibility: hidden !important;
-    opacity: 0 !important;
-    width: 0 !important;
-    height: 0 !important;
-    max-width: 0 !important;
-    max-height: 0 !important;
-    overflow: hidden !important;
-    position: absolute !important;
-    left: -9999px !important;
-    top: -9999px !important;
-    pointer-events: none !important;
-    z-index: -9999 !important;
-    animation: none !important;
-    transform: none !important;
-    transition: none !important;
-  }
+/* Direct targeted selectors for the spinning elements */
+#root span.absolute.rounded-full.blur-lg,
+#root span.absolute.rounded-full.animate-pulse,
+#root span.absolute.w-4.h-4,
+#root span.absolute.w-5.h-5,
+#root span.absolute[class*="animate"],
+#root svg.absolute.animate-spin,
+#root .animate-spin,
+#root .animate-pulse {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  width: 0 !important;
+  height: 0 !important;
+  max-width: 0 !important;
+  max-height: 0 !important;
+  overflow: hidden !important;
+  position: absolute !important;
+  left: -9999px !important;
+  top: -9999px !important;
+  pointer-events: none !important;
+  z-index: -9999 !important;
+  animation: none !important;
+  transform: none !important;
+  transition: none !important;
 }
-
-/* NO rules for desktop - desktop remains completely untouched */

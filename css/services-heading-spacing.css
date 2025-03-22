@@ -1,0 +1,11 @@
+/* Reduce spacing between Services heading/description and service images */
+
+/* Reduce the bottom margin on the heading container */
+#Services .w-node-b39aee4d-bf31-f9a0-7887-5efbc71ad44d-f7700f37 {
+  margin-bottom: 20px !important; /* Reduced from 40px */
+}
+
+/* Also reduce top margin on the services grid */
+#Services .utility-margin-top-3rem {
+  margin-top: 1.5rem !important; /* Reduced from 3rem */
+} 

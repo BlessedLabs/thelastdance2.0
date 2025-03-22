@@ -1,0 +1,637 @@
+<!DOCTYPE html><!--  This site was created in Webflow. https://webflow.com  --><!--  Last Published: Mon Mar 17 2025 02:24:26 GMT+0000 (Coordinated Universal Time)  -->
+<html data-wf-page="67d5bd502c2c35c3f7700f37" data-wf-site="67d5bd502c2c35c3f7700f13">
+<head>
+  <!-- Immediate scroll reset - must be the first script -->
+  <script>
+    // This script runs immediately
+    window.scrollTo(0, 0);
+    if (history.scrollRestoration) {
+      history.scrollRestoration = 'manual';
+    }
+    
+    // Critical: Remove any hash on refresh to prevent auto-redirect
+    if (window.performance && window.performance.navigation.type === 1) {
+      // This is a refresh, remove hash
+      if (window.location.hash) {
+        window.location.replace(window.location.pathname + window.location.search);
+      }
+    }
+  </script>
+  <meta charset="utf-8">
+  <title>Our Story - Blessed Labs</title>
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+  <!-- Prevent restoring scroll position on refresh -->
+  <meta name="scroll-restoration" content="manual">
+  <!-- Mobile-specific cache control -->
+  <script>
+    // Only apply cache control on mobile
+    if (window.innerWidth <= 991) {
+      // Create and add meta tag to control caching
+      const metaCache = document.createElement('meta');
+      metaCache.setAttribute('http-equiv', 'Cache-Control');
+      metaCache.setAttribute('content', 'no-store, no-cache, must-revalidate, max-age=0');
+      document.head.appendChild(metaCache);
+      
+      // Also add pragmatic no-cache for older browsers
+      const metaPragma = document.createElement('meta');
+      metaPragma.setAttribute('http-equiv', 'Pragma');
+      metaPragma.setAttribute('content', 'no-cache');
+      document.head.appendChild(metaPragma);
+    }
+  </script>
+  <meta content="Webflow" name="generator">
+  <link href="css/normalize.css" rel="stylesheet" type="text/css">
+  <link href="css/webflow.css" rel="stylesheet" type="text/css">
+  <link href="css/blessed-labs.webflow.css" rel="stylesheet" type="text/css">
+  <!-- Consolidated navigation styles -->
+  <link href="css/navigation-consolidated.css" rel="stylesheet" type="text/css">
+  <!-- White navigation text styling -->
+  <link href="css/navigation-white.css" rel="stylesheet" type="text/css">
+  <!-- Brand enhancement for Blessed Labs -->
+  <link href="css/brand-enhancement.css" rel="stylesheet" type="text/css">
+  <!-- Purposely excluding mobile-menu.js to use custom About Us page menu -->
+  <!-- <script src="js/mobile-menu.js"></script> -->
+  <!-- Fix for mobile redirect to Image Generator -->
+  <script src="js/prevent-auto-redirect.js"></script>
+  <!-- Service worker control to manage caching -->
+  <script src="js/service-worker-control.js"></script>
+  <!-- React app behavior controller - Not needed but included for consistency -->
+  <script src="js/react-app-helper.js"></script>
+  
+  <!-- Immediate navigation fix for mobile - Run this as early as possible -->
+  <script>
+    (function() {
+      // Force scroll to top immediately
+      window.scrollTo(0, 0);
+      
+      // Set history state to make sure we're at the top
+      if (history.scrollRestoration) {
+        history.scrollRestoration = 'manual';
+      }
+      
+      // Function to ensure navigation is visible that runs very early
+      function ensureNavVisible() {
+        if (window.innerWidth <= 991) {
+          // Force scroll to top again
+          window.scrollTo(0, 0);
+          
+          // Find the navigation
+          var navContainer = document.querySelector('.navbar-logo-left-container');
+          if (navContainer) {
+            // Force visibility
+            navContainer.style.display = 'block';
+            navContainer.style.visibility = 'visible';
+            navContainer.style.opacity = '1';
+            navContainer.style.position = 'relative';
+            navContainer.style.zIndex = '1000';
+          }
+          
+          // Also make first section visible
+          var firstSection = document.querySelector('section:first-of-type');
+          if (firstSection) {
+            firstSection.style.display = 'block';
+            firstSection.style.visibility = 'visible';
+          }
+        }
+      }
+      
+      // Try to run it now
+      ensureNavVisible();
+      
+      // Also run when DOM starts to load
+      document.addEventListener('DOMContentLoaded', ensureNavVisible);
+      
+      // And again after everything is loaded
+      window.addEventListener('load', ensureNavVisible);
+    })();
+  </script>
+  <!-- Fix for navigation text display -->
+  <style>
+    /* Ensure multi-word navigation items display properly */
+    .navbar-wrapper .text-block-2 {
+      display: inline-block;
+      white-space: nowrap;
+      font-size: 15px !important; /* Ensure smaller font size */
+    }
+    
+    /* Adjust spacing for better appearance */
+    @media screen and (min-width: 992px) {
+      .navbar-wrapper > div {
+        margin-left: 5px;
+        margin-right: 25px;
+      }
+    }
+  </style>
+  <!-- Logo fix to ensure visibility -->
+  <link href="css/logo-fix.css" rel="stylesheet" type="text/css">
+  <!-- Critical override for logo visibility -->
+  <style>
+    /* Force logo visibility with maximum specificity */
+    .navbar-brand.w-nav-brand img.image-2 {
+      display: block !important;
+      visibility: visible !important;
+      opacity: 1 !important;
+      filter: none !important;
+      width: 50px !important;
+      min-width: 50px !important;
+      height: auto !important;
+      max-height: none !important;
+    }
+  </style>
+  <!-- Section spacing adjustment -->
+  <link href="css/section-spacing.css" rel="stylesheet" type="text/css">
+  <!-- Button improvements and spacing fixes -->
+  <link href="css/button-improvements.css" rel="stylesheet" type="text/css">
+  <!-- Consolidated footer styling -->
+  <link href="css/footer-consolidated.css" rel="stylesheet" type="text/css">
+  <link href="css/about-us-section.css" rel="stylesheet" type="text/css">
+  <!-- Contact and Footer Redesign -->
+  <link href="css/footer-redesign.css" rel="stylesheet" type="text/css">
+  <!-- Mobile overflow fix - Added to prevent horizontal scrolling on mobile devices -->
+  <link href="css/mobile-overflow-fix.css" rel="stylesheet" type="text/css">
+  <!-- About Us and Services spacing for mobile -->
+  <link href="css/about-services-spacing.css" rel="stylesheet" type="text/css">
+  <!-- Hamburger menu positioning on mobile -->
+  <link href="css/hamburger-position.css" rel="stylesheet" type="text/css">
+  <!-- Center mobile menu items -->
+  <link href="css/mobile-menu-centered.css" rel="stylesheet" type="text/css">
+  <!-- Mobile menu fix -->
+  <link href="css/mobile-menu-fix.css" rel="stylesheet" type="text/css">
+  <!-- AI Studio subtitle styles for mobile only -->
+  <link href="css/ai-studio-mobile.css" rel="stylesheet" type="text/css">
+  <!-- Our Story page formatting improvements -->
+  <link href="css/our-story-formatting.css" rel="stylesheet" type="text/css">
+  <!-- Our Story full width on mobile -->
+  <link href="css/our-story-mobile-full-width.css" rel="stylesheet" type="text/css">
+  <!-- Our Story desktop paragraph flow -->
+  <link href="css/our-story-desktop-flow.css" rel="stylesheet" type="text/css">
+  <!-- Remove spinning star -->
+  <link href="css/remove-spinning-star.css" rel="stylesheet" type="text/css">
+  <!-- Our Story hamburger menu fix -->
+  <link href="css/our-story-hamburger-fix.css" rel="stylesheet" type="text/css">
+  <!-- Footer pixel playground animation -->
+  <link href="css/footer-pixel-animation.css" rel="stylesheet" type="text/css">
+  <!-- Remove focus outlines from buttons -->
+  <link href="css/button-focus-fix.css" rel="stylesheet" type="text/css">
+  
+  <!-- Critical Mobile Navigation Fix - Ensures hamburger menu is always visible on mobile -->
+  <style>
+    /* Mobile-only styles */
+    @media screen and (max-width: 991px) {
+      /* Make navbar always visible and properly positioned */
+      .navbar-logo-left-container {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        position: relative !important; /* Allow normal scrolling */
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        z-index: 1000 !important;
+        padding-top: 0 !important;
+        margin-top: 0 !important;
+        background-color: rgba(0, 0, 0, 0.9) !important; /* Ensure background is visible */
+        min-height: 80px !important; /* Ensure enough height for content */
+        width: 100% !important;
+      }
+      
+      /* Ensure the container doesn't get hidden */
+      section:first-of-type {
+        display: block !important;
+        visibility: visible !important;
+        min-height: 80px !important;
+      }
+      
+      /* Ensure all sections remain visible */
+      section {
+        display: block !important;
+        visibility: visible !important;
+      }
+      
+      /* Ensure overlay works properly but doesn't interfere with content when closed */
+      .w-nav-overlay {
+        display: none !important;
+        position: fixed !important;
+        top: 0 !important; /* Start from the top of screen */
+        left: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        background-color: rgba(0, 0, 0, 0.7) !important;
+        z-index: 1998 !important;
+        opacity: 0 !important;
+        transition: opacity 0.3s ease-in-out !important;
+        pointer-events: none !important; /* Don't block interaction when closed */
+      }
+      
+      /* Show overlay when menu is open */
+      .w-nav-overlay.w--open {
+        display: block !important;
+        opacity: 1 !important;
+        pointer-events: auto !important; /* Allow interaction when open */
+      }
+      
+      /* X icon for close state */
+      .menu-button.w--open .w-icon-nav-menu:before,
+      .w-nav-button.w--open .w-icon-nav-menu:before {
+        content: "✕" !important;
+      }
+      
+      /* Make hamburger icon bigger */
+      .w-icon-nav-menu {
+        font-size: 24px !important;
+        transform: scale(1.2) !important;
+      }
+    }
+  </style>
+  <!-- About Us Page Mobile Menu Script - ONLY HOME BUTTON -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      console.log("About Us page mobile menu script loaded");
+      
+      // Find the hamburger button - try multiple possible selectors
+      const hamburgerBtn = document.querySelector('.menu-button') || 
+                           document.querySelector('.w-nav-button') ||
+                           document.querySelector('[class*="menu"]');
+      
+      if (!hamburgerBtn) {
+        console.error("Could not find hamburger button");
+        return;
+      }
+      
+      // Fix hamburger button position and appearance
+      function fixHamburgerPosition() {
+        const menuButtons = document.querySelectorAll('.menu-button, .w-nav-button');
+        menuButtons.forEach(function(button) {
+          // Force button styles
+          button.style.display = 'flex';
+          button.style.visibility = 'visible';
+          button.style.opacity = '1';
+          button.style.position = 'absolute';
+          button.style.right = '10px';
+          button.style.top = '50%';
+          button.style.transform = 'translateY(-50%)';
+          button.style.width = '44px';
+          button.style.height = '44px';
+          button.style.alignItems = 'center';
+          button.style.justifyContent = 'center';
+          button.style.zIndex = '2000';
+          button.style.padding = '0';
+          
+          // Make sure the button is clickable
+          button.style.cursor = 'pointer';
+          button.style.pointerEvents = 'auto';
+          
+          // Make sure parent elements have proper positioning context
+          const navbar = button.closest('.navbar-wrapper');
+          if (navbar) {
+            navbar.style.position = 'relative';
+            navbar.style.paddingRight = '50px';
+          }
+          
+          // Ensure the logo and text don't move
+          const logo = document.querySelector('.navbar-brand');
+          const navLeft = document.querySelector('.nav-left');
+          if (logo) {
+            logo.style.position = 'relative';
+            logo.style.left = '0';
+            logo.style.transform = 'none';
+          }
+          if (navLeft) {
+            navLeft.style.position = 'relative';
+            navLeft.style.left = '0';
+            navLeft.style.transform = 'none';
+          }
+        });
+      }
+      
+      // Create overlay for mobile menu with ONLY HOME button
+      const mobileMenuOverlay = document.createElement('div');
+      mobileMenuOverlay.id = 'bl-mobile-menu-overlay';
+      
+      // Force overlay styles with !important
+      Object.assign(mobileMenuOverlay.style, {
+        position: 'fixed',
+        top: '0',
+        left: '0',
+        right: '0',
+        bottom: '0',
+        backgroundColor: 'rgba(0, 0, 0, 0.9)',
+        zIndex: '99999',
+        display: 'none',
+        overflowY: 'auto',
+        padding: '20px 0 20px 0', // Reduced top padding to position Home button higher
+        alignItems: 'center',
+        justifyContent: 'flex-start' // Align content to the top instead of center
+      });
+      
+      // Create a container for the menu items
+      const menuContainer = document.createElement('div');
+      menuContainer.id = 'bl-mobile-menu-container';
+      
+      // Force styles for menu container
+      Object.assign(menuContainer.style, {
+        maxWidth: '100%',
+        width: '100%',
+        padding: '80px 20px 20px 20px', // Added top padding to place below navbar
+        color: 'white',
+        fontFamily: 'Inter, sans-serif',
+        boxSizing: 'border-box',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'flex-start' // Align items to the top
+      });
+      
+      // ONLY HOME BUTTON as requested
+      const homeButton = document.createElement('button');
+      homeButton.type = 'button';
+      homeButton.setAttribute('data-target', 'index.html#Home');
+      homeButton.id = 'mobile-menu-home';
+      homeButton.innerHTML = 'Home';
+      
+      // Force link styles
+      Object.assign(homeButton.style, {
+        display: 'block',
+        backgroundColor: 'transparent',
+        border: 'none',
+        color: 'white',
+        fontSize: '24px',
+        padding: '20px 30px',
+        textDecoration: 'none',
+        borderBottom: '1px solid rgba(255, 255, 255, 0.1)',
+        margin: '0 auto',
+        fontWeight: '500',
+        width: '100%',
+        maxWidth: '250px',
+        boxSizing: 'border-box',
+        textAlign: 'center',
+        cursor: 'pointer'
+      });
+      
+      // Use a direct, simple onclick handler
+      homeButton.setAttribute('onclick', `
+        // First close the menu
+        document.getElementById('bl-mobile-menu-overlay').style.display = 'none';
+        document.querySelector('.menu-button, .w-nav-button').classList.remove('w--open');
+        document.body.style.overflow = '';
+        
+        // Then navigate to homepage
+        window.location.href = 'index.html#Home';
+      `);
+      
+      menuContainer.appendChild(homeButton);
+      
+      // Create close button
+      const closeButton = document.createElement('button');
+      closeButton.textContent = '✕';
+      
+      // Force close button styles
+      Object.assign(closeButton.style, {
+        position: 'absolute',
+        top: '20px',
+        right: '20px',
+        background: 'none',
+        border: 'none',
+        color: 'white',
+        fontSize: '24px',
+        cursor: 'pointer',
+        zIndex: '100000',
+        padding: '10px',
+        display: 'block'
+      });
+      
+      // Add onclick handler to close button
+      closeButton.setAttribute('onclick', `
+        document.getElementById('bl-mobile-menu-overlay').style.display = 'none';
+        document.querySelector('.menu-button, .w-nav-button').classList.remove('w--open');
+        document.body.style.overflow = ''; // Restore scrolling on body
+      `);
+      
+      mobileMenuOverlay.appendChild(menuContainer);
+      mobileMenuOverlay.appendChild(closeButton);
+      
+      // Append menu to the body
+      document.body.appendChild(mobileMenuOverlay);
+      
+      // Hamburger button click handler
+      hamburgerBtn.setAttribute('onclick', `
+        const overlay = document.getElementById('bl-mobile-menu-overlay');
+        
+        if (overlay.style.display === 'flex' || overlay.style.display === 'block') {
+          overlay.style.display = 'none';
+          this.classList.remove('w--open');
+          document.body.style.overflow = ''; // Restore scrolling on body
+        } else {
+          const navbarHeight = document.querySelector('.navbar-logo-left-container')?.offsetHeight || 0;
+          overlay.style.paddingTop = navbarHeight + 'px';
+          overlay.style.display = 'flex';
+          this.classList.add('w--open');
+          document.body.style.overflow = 'hidden'; // Prevent scrolling while menu is open
+        }
+      `);
+      
+      // Only apply mobile menu on mobile devices
+      function checkMobile() {
+        if (window.innerWidth <= 991) {
+          // Make sure hamburger button is visible
+          if (hamburgerBtn) {
+            hamburgerBtn.style.display = 'block';
+            hamburgerBtn.style.visibility = 'visible';
+            hamburgerBtn.style.opacity = '1';
+            hamburgerBtn.style.zIndex = '9999';
+            
+            // Ensure we can click the hamburger menu
+            hamburgerBtn.style.pointerEvents = 'auto';
+            hamburgerBtn.style.cursor = 'pointer';
+          }
+        } else {
+          // Hide mobile menu on desktop
+          mobileMenuOverlay.style.display = 'none';
+          hamburgerBtn.classList.remove('w--open');
+        }
+      }
+      
+      // Fix hamburger immediately and after a delay
+      fixHamburgerPosition();
+      setTimeout(fixHamburgerPosition, 500);
+      
+      // Check mobile state on load and resize
+      checkMobile();
+      window.addEventListener('resize', checkMobile);
+    });
+  </script>
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous">
+  <!-- Font Awesome for social icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" type="text/javascript"></script>
+  <script type="text/javascript">WebFont.load({  google: {    families: ["Inter:regular","Syne:regular"]  }});</script>
+  <script type="text/javascript">!function(o,c){var n=c.documentElement,t=" w-mod-";n.className+=t+"js",("ontouchstart"in o||o.DocumentTouch&&c instanceof DocumentTouch)&&(n.className+=t+"touch")}(window,document);</script>
+  <link href="images/favicon.jpg" rel="shortcut icon" type="image/x-icon">
+  <link href="images/webclip.jpg" rel="apple-touch-icon">
+  
+  <!-- Mobile Navigation Styling -->
+  <style>
+    /* Ensure hamburger menu is visible and transforms correctly */
+    .menu-button, .w-nav-button {
+      display: none !important; /* Hide on desktop */
+    }
+    
+    @media screen and (max-width: 991px) {
+      .menu-button, .w-nav-button {
+        display: block !important; /* Show on mobile */
+        position: absolute !important;
+        right: 15px !important;
+        z-index: 9999 !important;
+      }
+      
+      /* X icon for close state */
+      .menu-button.w--open .w-icon-nav-menu:before,
+      .w-nav-button.w--open .w-icon-nav-menu:before {
+        content: "✕" !important;
+      }
+      
+      /* CRITICAL: Center mobile menu items when menu is open - OVERLAY ONLY */
+      #bl-mobile-menu-overlay,
+      .w-nav-overlay[data-nav-menu-open],
+      .w-nav-menu.w--open {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        position: fixed !important;
+        z-index: 9999 !important;
+        background-color: rgba(0, 0, 0, 0.9) !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+      }
+      
+      #bl-mobile-menu-container a,
+      .w-nav-overlay[data-nav-menu-open] a,
+      .w-nav-menu.w--open a {
+        text-align: center !important;
+        width: 100% !important;
+        max-width: 250px !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        justify-content: center !important;
+        display: flex !important;
+        align-items: center !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <section>
+    <div id="top" data-animation="default" data-collapse="medium" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="navbar-logo-left-container shadow-three w-nav">
+      <div class="container">
+        <div class="navbar-wrapper logo">
+          <a href="index.html" class="navbar-brand w-nav-brand"><img src="images/BL-Logo.jpg" loading="lazy" width="50" alt="Blessed Labs Logo" class="image-2"></a>
+          <div class="nav-left">
+            <div class="nav-logo">
+              <div class="paragraph-lg utility-margin-bottom-0">Blessed Labs</div>
+              <div class="ai-studio-subtitle">AI Studio</div>
+            </div>
+          </div>
+          <div>
+            <a href="index.html#Home" class="link-block-4 w-inline-block">
+              <div class="text-block-2">Home</div>
+            </a>
+          </div>
+          <div>
+            <a href="index.html#serveme" class="link-block-4 w-inline-block">
+              <div class="text-block-2">Services</div>
+            </a>
+          </div>
+          <div>
+            <a href="index.html#ImageGenerator" class="link-block-4 w-inline-block">
+              <div class="text-block-2">Pixel Playground</div>
+            </a>
+          </div>
+          <div>
+            <a href="our-story.html" class="link-block-4 w-inline-block">
+              <div class="text-block-2">Our Story</div>
+            </a>
+          </div>
+          <div>
+            <a href="index.html#Contact" class="link-block w-inline-block">
+              <div class="text-block-2">Contact</div>
+            </a>
+          </div>
+          <div class="menu-button w-nav-button">
+            <div class="w-icon-nav-menu"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Our Story Section -->
+  <section id="OurStory" data-copilot="true" class="section">
+    <div class="container">
+      <div class="w-layout-grid grid-layout">
+        <div>
+          <h2 class="heading"><strong>Our Story</strong></h2>
+          <div class="subheading">
+            <p>
+              At Blessed Labs, we're pushing the boundaries of AI to create tools that don't just innovate, they transform. Founded by Eric Nelson, a proud member of the federally recognized Rappahannock tribe and an AI specialist, we blend respect for heritage with a passion for building technology that powers progress.
+            </p>
+            <p>
+              Our solutions include customized machine learning models and Game AI Infrastructure & Intelligent Systems for game developers, delivering advanced NPCs and ML systems that enhance gameplay and player engagement. We help businesses thrive in a rapidly evolving digital landscape while transforming gaming experiences and unlocking new possibilities.
+            </p>
+            <p>
+              Beyond technology, we're committed to impact. At Blessed Labs, we craft powerful AI tools while empowering our clients with the knowledge to use them effectively. We're dedicated to making advanced technology meaningful, accessible, and capable of transforming industries. We believe that when AI is developed thoughtfully, it becomes a force for positive change.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="w-layout-grid grid-layout utility-margin-top-3rem">
+        <div>
+          <h3 class="h4-heading"><strong>A Vision Born from Transformation</strong></h3>
+          <p>In 2016, Eric's leadership journey took a transformative turn. Through a profound experience of self-discovery, he embraced a style of leadership defined by authenticity, collaboration, and purpose. "It's about empowering people to create something bigger than themselves," he reflects. This philosophy is the heartbeat of Blessed Labs, fostering a culture where bold ideas flourish through teamwork.</p>
+          
+          <h3 class="h4-heading"><strong>Powered by Expertise</strong></h3>
+          <p>With over 15 years of experience across tech, hospitality, and real estate, Eric's technical breakthrough came in 2020 when he designed and built a high-performance computing (HPC) server with 25 GPUs. This hands-on expertise in scalable infrastructure and computational power laid the groundwork for Blessed Labs. Today, we channel that knowledge into crafting AI tools and automation solutions that are fast, reliable, and impactful.</p>
+          
+          <h3 class="h4-heading"><strong>Our Mission: Technology with Purpose</strong></h3>
+          <p>At Blessed Labs, we're driven by a simple belief: technology should do more than solve problems. It should inspire progress. From boosting efficiency to tackling big challenges, we create AI solutions that are ethical, accessible, and designed to make a difference. We're not just innovators; we're builders of a better future.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <footer class="footer-container">
+    <div class="footer-content">
+      <!-- Left section -->
+      <div class="footer-left">
+        <div class="logo-container">
+          <img src="images/BL-Logo.jpg" alt="Blessed Labs Logo" class="footer-logo">
+          <span class="studio-text">AI Studio</span>
+        </div>
+        <p class="footer-tagline">Empowering Businesses through advanced AI solutions and strategic innovation.</p>
+      </div>
+      
+      <!-- Center/Right navigation -->
+      <div class="footer-nav">
+        <ul class="footer-nav-list">
+          <li class="footer-nav-item"><a href="index.html#top">Home</a></li>
+          <li class="footer-nav-item"><a href="index.html#serveme">Services</a></li>
+          <li class="footer-nav-item"><a href="index.html#ImageGenerator">Pixel Playground</a></li>
+          <li class="footer-nav-item"><a href="our-story.html">Our Story</a></li>
+          <li class="footer-nav-item"><a href="index.html#Contact">Contact</a></li>
+        </ul>
+      </div>
+      
+      <!-- Right section -->
+      <div class="footer-right">
+        <p class="footer-copyright">Copyright © Blessed Labs LLC 2025</p>
+      </div>
+    </div>
+  </footer>
+  <script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=67d5bd502c2c35c3f7700f13" type="text/javascript" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+  <script src="js/webflow.js" type="text/javascript"></script>
+  <script src="js/responsive-nav.js" type="text/javascript"></script>
+</body>
+</html> 

@@ -1,7 +1,8 @@
 /* Animation for Pixel Playground footer link - matches the navbar animation */
 
 /* Target the Pixel Playground link in the footer */
-.footer-nav-item a[href="#ImageGenerator"] {
+.footer-nav-item a[href="#ImageGenerator"],
+.footer-nav-item a[href="index.html#ImageGenerator"] {
   background: linear-gradient(-45deg, #1e5ef3, #4a00e0, #00d4ff, #1e5ef3);
   background-size: 200% auto;
   -webkit-background-clip: text;
@@ -13,7 +14,8 @@
 }
 
 /* Keep the animation when hovering */
-.footer-nav-item a[href="#ImageGenerator"]:hover {
+.footer-nav-item a[href="#ImageGenerator"]:hover,
+.footer-nav-item a[href="index.html#ImageGenerator"]:hover {
   color: transparent !important;
   opacity: 0.9;
 }

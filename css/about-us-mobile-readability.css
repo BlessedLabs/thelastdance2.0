@@ -1,0 +1,42 @@
+/* Improve About Us section text readability on mobile devices */
+
+@media screen and (max-width: 767px) {
+  /* Keep text centered but improve readability */
+  #AboutUs .subheading {
+    text-align: center !important; /* Keep centered alignment */
+    font-size: 15px !important; /* Slightly reduced from 16px */
+    line-height: 1.5 !important; /* Increased from original */
+    padding: 0 20px !important; /* Add side padding */
+  }
+  
+  /* Add more space between paragraphs */
+  #AboutUs .subheading p {
+    margin-bottom: 22px !important; /* More space between paragraphs */
+    position: relative;
+  }
+  
+  /* Add simple decorative line between paragraphs */
+  #AboutUs .subheading p:not(:last-child):after {
+    content: "";
+    position: absolute;
+    bottom: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.3);
+  }
+  
+  /* Last paragraph needs no bottom margin */
+  #AboutUs .subheading p:last-child {
+    margin-bottom: 0 !important;
+  }
+}
+
+/* For even smaller mobile screens */
+@media screen and (max-width: 479px) {
+  #AboutUs .subheading {
+    font-size: 14.5px !important; /* Further reduced for smallest screens */
+    padding: 0 20px !important;
+  }
+} 

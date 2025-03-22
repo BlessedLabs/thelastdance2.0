@@ -1,0 +1,25 @@
+/* Reset Generate button to default styling */
+#root button:last-of-type {
+  background: #0066ff !important; /* Simple solid color */
+  background-size: auto !important;
+  color: white !important;
+  animation: none !important; /* Remove animation */
+  font-weight: normal !important;
+  transition: none !important;
+  border: none !important;
+  text-shadow: none !important;
+  box-shadow: none !important;
+  transform: none !important;
+}
+
+/* Remove hover effects */
+#root button:last-of-type:hover {
+  transform: none !important;
+  box-shadow: none !important;
+  background: #0066ff !important;
+}
+
+/* Override any other animations */
+@keyframes gradient {
+  0%, 50%, 100% { background-position: 0 0 !important; }
+} 

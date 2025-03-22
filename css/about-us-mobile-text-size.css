@@ -1,0 +1,15 @@
+/* Reduce About Us description text size on mobile only */
+
+/* For medium mobile devices */
+@media screen and (max-width: 767px) {
+  #AboutUs .subheading {
+    font-size: 15px; /* Reduced from 16px */
+  }
+}
+
+/* For small mobile devices */
+@media screen and (max-width: 479px) {
+  #AboutUs .subheading {
+    font-size: 15px; /* Reduced from 16px */
+  }
+} 

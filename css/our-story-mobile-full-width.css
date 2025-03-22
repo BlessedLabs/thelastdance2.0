@@ -1,0 +1,68 @@
+/* OUR STORY Section - Full Width on Mobile Devices */
+
+@media screen and (max-width: 767px) {
+  /* Make the section container full width without side constraints */
+  #OurStory.section .container {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    box-sizing: border-box !important;
+  }
+  
+  /* Adjust grid layout container to be full width */
+  #OurStory .w-layout-grid.grid-layout {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: block !important;
+    box-sizing: border-box !important;
+  }
+  
+  /* Keep the content div full width with proper padding */
+  #OurStory .grid-layout > div {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 20px !important;
+    box-sizing: border-box !important;
+  }
+  
+  /* Add space between paragraphs */
+  #OurStory .subheading p {
+    margin-bottom: 18px !important;
+    padding: 0 !important;
+  }
+  
+  /* Last paragraph needs no bottom margin */
+  #OurStory .subheading p:last-child {
+    margin-bottom: 0 !important;
+  }
+  
+  /* Ensure consistent padding on the main subheading */
+  #OurStory .subheading {
+    padding: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+}
+
+/* For even smaller mobile screens */
+@media screen and (max-width: 479px) {
+  /* Ensure the grid layout remains full width on very small screens */
+  #OurStory .w-layout-grid.grid-layout,
+  #OurStory .utility-margin-top-3rem {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+  }
+  
+  /* Adjust inner container padding for smallest screens */
+  #OurStory .grid-layout > div,
+  #OurStory .utility-margin-top-3rem > div {
+    padding: 0 15px !important;
+    box-sizing: border-box !important;
+  }
+} 

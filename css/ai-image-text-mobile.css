@@ -6,31 +6,82 @@
 @media screen and (max-width: 767px) {
   /* Apply custom styling to the text within the AI Image Generator section */
   #root h1 span:not(.absolute) {
-    /* Use a combination of techniques to achieve vertical expansion without horizontal growth */
-    transform: scaleY(1.15) !important; /* Vertical stretch only */
-    transform-origin: center !important;
+    /* Update to display all words on a single line with reduced width */
+    white-space: nowrap !important; /* Prevent line breaks */
     font-weight: 700 !important; /* Heavier font weight */
-    line-height: 1.2 !important; /* Increased line height for vertical expansion */
-    letter-spacing: -0.02em !important; /* Slightly tighter letter spacing to maintain width */
+    letter-spacing: -0.05em !important; /* Tighter letter spacing to reduce width */
+    transform: none !important; /* Remove vertical stretching */
+    line-height: normal !important; /* Reset line height */
+    font-size: 85% !important; /* Further reduce font size to fit width */
+    max-width: 100% !important; /* Increase max-width to allow full text */
+    margin: 0 !important; /* Remove auto margins to move left */
+    padding: 0 !important; /* Remove padding */
+    width: auto !important; /* Let width adjust based on content */
+    text-align: left !important; /* Left align text instead of center */
+    display: block !important; /* Block display for width control */
+    overflow: visible !important; /* Ensure text visibility */
+    padding-left: 5px !important; /* Less left padding to move text further left */
+    transform-origin: left center !important; /* Transform from left */
+    position: relative !important; /* Enable positioning */
+    left: 0 !important; /* Move left */
   }
   
   /* Target the "AI" text specifically if it's in a separate element */
   #root h1 span:not(.absolute) strong,
   #root h1 span:not(.absolute) b,
   #root h1 span:not(.absolute) [class*="font-bold"] {
-    font-size: 1.1em !important; /* Make "AI" slightly larger */
     font-weight: 800 !important; /* Extra bold */
-    display: inline-block !important;
-    transform: scaleY(1.2) !important; /* Additional vertical stretch */
-    transform-origin: center !important;
+    display: inline !important; /* Display inline to not break the flow */
+    transform: none !important; /* Remove vertical stretching */
+    letter-spacing: -0.05em !important; /* Match letter spacing */
   }
   
-  /* Completely remove all sparkle elements */
+  /* Make "Powered by Blessed Labs" slightly smaller */
+  #root p.text-lg {
+    font-size: 1rem !important; /* Slightly smaller text (from 1.2rem) */
+    text-align: left !important; /* Left align subtitle to match title */
+    padding-left: 5px !important; /* Less padding to match title */
+    margin-top: 0.15rem !important; /* Reduced spacing from title on mobile */
+    margin-bottom: 0 !important; /* No bottom margin */
+  }
+  
+  /* Add negative margin to title container for tighter spacing */
+  #root h1 {
+    position: relative !important;
+    overflow: visible !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    margin-bottom: -5px !important; /* Pull subtitle closer */
+    text-align: left !important;
+  }
+  
+  /* Enhanced targeting for the spinning star specifically near the AI text */
   #root span.absolute.blur-lg,
   #root div > span.absolute.blur-lg,
   #root .rounded-full.absolute,
   #root .animate-spin,
-  #root .animate-pulse {
+  #root .animate-pulse,
+  #root h1 + span.absolute,
+  #root h1 > span.absolute,
+  #root h1 ~ span.absolute,
+  #root span[class*="star"],
+  #root [class*="sparkle"],
+  #root svg[class*="star"],
+  #root svg[class*="sparkle"] {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+    width: 0 !important;
+    height: 0 !important;
+    position: absolute !important;
+    left: -9999px !important;
+  }
+  
+  /* Target the specific parent container to force hide stars */
+  #root h1 > *:not(span:not(.absolute)) {
     display: none !important;
     visibility: hidden !important;
     opacity: 0 !important;

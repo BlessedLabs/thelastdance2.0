@@ -1,0 +1,37 @@
+/* Apply the same granite gradient effect to the Let's Build Together button 
+   Matches the styling used on the Book a Consultation button */
+
+/* Target the button in the hero section */
+.button-group.align-center .button.w-button {
+  /* Apply the gradient background */
+  background: linear-gradient(90deg, #1e5ef3, #4a00e0) !important;
+  background-size: 200% auto !important;
+  color: white !important;
+  text-shadow: 0 1px 1px rgba(0,0,0,0.2) !important;
+  
+  /* Add smooth transition effects */
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-position 0.3s ease !important;
+  
+  /* Remove focus outline/ring */
+  outline: none !important;
+  -webkit-tap-highlight-color: transparent !important;
+}
+
+/* Hover effect matching the Book a Consultation button */
+.button-group.align-center .button.w-button:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 5px 15px rgba(30, 94, 243, 0.4) !important;
+  background-position: right center !important; /* Move gradient on hover */
+}
+
+/* Active/pressed state */
+.button-group.align-center .button.w-button:active {
+  transform: translateY(0) !important;
+  box-shadow: 0 2px 8px rgba(30, 94, 243, 0.3) !important;
+}
+
+/* Focus state - remove outline but maintain accessibility */
+.button-group.align-center .button.w-button:focus {
+  outline: none !important;
+  box-shadow: 0 0 0 0 transparent !important;
+} 

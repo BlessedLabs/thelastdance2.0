@@ -33,7 +33,7 @@
     padding-right: 0 !important;
   }
   
-  /* Custom hamburger icon styling */
+  /* UPDATED: Custom hamburger icon styling - unified approach for all pages */
   .menu-button:after, .w-nav-button:after {
     content: "☰" !important; /* Unicode hamburger symbol */
     font-size: 24px !important;
@@ -48,10 +48,18 @@
     display: none !important;
   }
   
-  /* Ensure the menu is always visible */
+  /* CRITICAL: Ensure consistent appearance on all pages */
   .menu-button, .w-nav-button {
     opacity: 1 !important;
     visibility: visible !important;
+    background-image: none !important; /* Prevent any background images */
+    border: none !important; /* Remove any borders */
+    outline: none !important; /* Remove any outlines */
+  }
+  
+  /* CRITICAL: Prevent lines or additional elements in hamburger menu across all pages */
+  .menu-button *, .w-nav-button * {
+    display: none !important; /* Hide any child elements */
   }
   
   /* CRITICAL: Preserve logo and AI Studio text position - DO NOT CHANGE */
