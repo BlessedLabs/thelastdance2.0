@@ -1,0 +1,72 @@
+/* 
+ * STRONG Desktop-only AI Image Generator text position adjustment
+ * Aggressively moves the text left to make "OR" and "generator" text fully visible
+ * Positions text directly above and close to "Powered by Blessed Labs"
+ */
+
+/* Force the AI Generator text to move left on desktop */
+@media screen and (min-width: 768px) {
+  /* Direct targeting with extremely high specificity */
+  html body section#ImageGenerator div#root h1 span,
+  html body div#ImageGenerator div#root h1 span,
+  html body #root h1 span:not(.absolute),
+  html #root h1 span:not(.absolute) {
+    /* Very aggressive left positioning */
+    position: relative !important;
+    transform: translateX(-40px) translateY(35px) !important; /* More downward adjustment */
+    margin-right: -40px !important;
+    top: 15px !important; /* More downward positioning */
+    margin-bottom: 0 !important; /* No space below */
+    /* Force override any other styles */
+    text-align: center !important;
+    max-width: calc(100% + 80px) !important;
+    width: calc(100% + 80px) !important;
+    white-space: nowrap !important;
+    overflow: visible !important;
+    margin-left: 0 !important;
+    /* Give this style maximum priority */
+    z-index: 9999 !important;
+    /* Increase text size */
+    font-size: 4.5rem !important; /* Bigger text */
+    font-weight: 700 !important; /* Bold weight for better visibility */
+    letter-spacing: -0.03em !important; /* Slightly tighter tracking to fit text */
+    padding-left: 30px !important; /* Space for star on the left */
+  }
+  
+  /* Hide any specific dynamic labels or overlays that might be interfering */
+  #root h1 span:not(:first-of-type) {
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+  
+  /* Add some additional space in the parent container */
+  #root h1 {
+    overflow: visible !important;
+    width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    max-width: 100% !important;
+    position: relative !important;
+    /* Ensure plenty of room for the full text */
+    min-width: 500px !important;
+    margin-bottom: 0 !important; /* No extra space */
+  }
+  
+  /* Position subtitle directly below title with minimal gap */
+  #root p.text-lg {
+    margin-top: -3px !important; /* Negative space to bring it up closer to title */
+    position: relative !important;
+    top: 2px !important; /* Slight adjustment */
+    font-size: 1.4rem !important;
+  }
+}
+
+/* Additional positioning at wider screens */
+@media screen and (min-width: 992px) {
+  html body #root h1 span:not(.absolute) {
+    /* Move even more left on larger screens and increase font size further */
+    transform: translateX(-50px) translateY(35px) !important; /* More downward positioning */
+    margin-right: -50px !important;
+    font-size: 5rem !important; /* Even bigger text on larger screens */
+  }
+}
