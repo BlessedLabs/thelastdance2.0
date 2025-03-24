@@ -1,0 +1,19 @@
+/* 
+ * Mobile-only Game AI Infrastructure Title Size Adjustment
+ * Makes the Game AI Infrastructure title slightly smaller on mobile
+ */
+
+@media screen and (max-width: 767px) {
+  /* Target the Game AI Infrastructure title specifically 
+     Using the second service box in the grid */
+  .w-layout-grid > div:nth-child(2) h3.h4-heading,
+  #w-node-_5d315c32-af13-7cd3-c7ed-3128f7b629c3-790076ba h3.h4-heading {
+    font-size: 1.18rem !important; /* Just slightly smaller than other titles */
+  }
+  
+  /* Target the strong element for extra precision */
+  .w-layout-grid > div:nth-child(2) h3.h4-heading strong,
+  #w-node-_5d315c32-af13-7cd3-c7ed-3128f7b629c3-790076ba h3.h4-heading strong {
+    font-size: 1.18rem !important; /* Match the heading size */
+  }
+} 

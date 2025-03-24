@@ -17,4 +17,14 @@
   #Services h3.h4-heading strong {
     font-weight: 900 !important; /* Force extra bold weight */
   }
+  
+  /* Slightly smaller text for the Game AI Infrastructure title specifically */
+  #Services h3.h4-heading strong:contains("Game AI Infrastructure") {
+    font-size: 1.15rem !important; /* Slightly smaller than other titles */
+  }
+  
+  /* Alternative approach using direct targeting */
+  #Services .w-layout-grid > div:nth-child(2) h3.h4-heading {
+    font-size: 1.15rem !important; /* Slightly smaller than other titles */
+  }
 } 
