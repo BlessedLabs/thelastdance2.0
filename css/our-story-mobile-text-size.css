@@ -1,19 +1,26 @@
 /* Our Story Page - Mobile Text Size Adjustment
    Reduces the size of heading text only on mobile devices
    Targets specifically the "Our Mission: Technology with Purpose" section and similar headings
+   Increases the size of description paragraphs on both mobile and desktop
 */
+
+/* Increase paragraph text size on all devices */
+#OurStory p {
+  font-size: 18px !important; /* Larger font size for descriptions */
+  line-height: 1.7 !important; /* Maintain good readability */
+}
 
 @media screen and (max-width: 767px) {
   /* Target the specific heading elements in the Our Story page */
   .h4-heading {
-    font-size: 18px !important; /* Smaller font size */
+    font-size: 16px !important; /* Smaller font size on mobile */
     line-height: 1.3 !important; /* Tighter line height */
     margin-bottom: 10px !important; /* Reduced spacing below */
   }
   
   /* Make "Our Mission: Technology with Purpose" heading even smaller */
   .mission-heading {
-    font-size: 15px !important; /* Extra small font size */
+    font-size: 14px !important; /* Extra small font size on mobile */
     line-height: 1.2 !important; /* Even tighter line height */
     letter-spacing: -0.02em !important; /* Slightly tighter letter spacing */
     word-spacing: -0.05em !important; /* Tighter word spacing */
@@ -21,6 +28,6 @@
   
   /* Ensure paragraph text under headings is properly sized and spaced */
   .h4-heading + p {
-    margin-top: 8px !important;
+    margin-top: 12px !important;
   }
 } 
