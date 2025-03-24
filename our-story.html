@@ -369,7 +369,7 @@
       // ONLY HOME BUTTON as requested
       const homeButton = document.createElement('button');
       homeButton.type = 'button';
-      homeButton.setAttribute('data-target', 'index.html#Home');
+      homeButton.setAttribute('data-target', '/');
       homeButton.id = 'mobile-menu-home';
       homeButton.innerHTML = 'Home';
       
@@ -400,7 +400,7 @@
         document.body.style.overflow = '';
         
         // Then navigate to homepage
-        window.location.href = 'index.html#Home';
+        window.location.href = '/';
       `);
       
       menuContainer.appendChild(homeButton);
@@ -533,7 +533,7 @@
             </div>
           </div>
           <div>
-            <a href="index.html#Home" class="link-block-4 w-inline-block">
+            <a href="/" class="link-block-4 w-inline-block">
               <div class="text-block-2">Home</div>
             </a>
           </div>
@@ -613,7 +613,7 @@
       <!-- Center/Right navigation -->
       <div class="footer-nav">
         <ul class="footer-nav-list">
-          <li class="footer-nav-item"><a href="index.html#top">Home</a></li>
+          <li class="footer-nav-item"><a href="/">Home</a></li>
           <li class="footer-nav-item"><a href="index.html#serveme">Services</a></li>
           <li class="footer-nav-item"><a href="index.html#ImageGenerator">Pixel Playground</a></li>
           <li class="footer-nav-item"><a href="our-story.html">Our Story</a></li>
