@@ -1,0 +1,32 @@
+/* Prevent horizontal scrolling on desktop only */
+
+/* Only apply these styles to desktop (screens wider than 767px) */
+@media screen and (min-width: 768px) {
+  /* Target the HTML and body to prevent overflow */
+  html, body {
+    overflow-x: hidden;
+    width: 100%;
+    position: relative;
+  }
+  
+  /* Ensure containers don't cause overflow */
+  .container, .full-width-container {
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+  
+  /* Fix potential overflow in the image generator section */
+  #ImageGenerator .image-generator-container,
+  #root {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+  
+  /* Fix potential AI text overflow from JavaScript positioning */
+  #root h1 span:not(.absolute) {
+    max-width: 100% !important;
+    width: auto !important;
+    margin-right: 0 !important;
+    overflow: visible !important;
+  }
+} 

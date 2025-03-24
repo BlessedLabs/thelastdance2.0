@@ -1,0 +1,19 @@
+/* Mobile-only separator between hero and About Us section */
+
+/* Hide the separator on desktop by default */
+.mobile-only-separator {
+  display: none;
+}
+
+/* Only show and style the separator on mobile devices */
+@media screen and (max-width: 767px) {
+  .mobile-only-separator {
+    display: block;
+    height: 15px; /* Small height for a minimal block */
+    width: 100%;
+    background-color: #0b0e19; /* Dark background color to match site theme */
+    border-top: 1px solid rgba(255, 255, 255, 0.1); /* Subtle top border */
+    margin: 10px 0 0 0; /* Added 10px top margin to move it lower from hero section */
+    padding: 0;
+  }
+} 

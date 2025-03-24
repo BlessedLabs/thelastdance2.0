@@ -1,0 +1,23 @@
+/* Additional spacing for About Us section on mobile only */
+
+/* Default - no changes for desktop */
+
+/* Mobile-specific spacing adjustments */
+@media screen and (max-width: 767px) {
+  /* Add more top spacing to the About Us section */
+  #AboutUs.section {
+    padding-top: 50px !important; /* Increased padding at the top */
+  }
+  
+  /* Make sure this only affects the top, not other sides */
+  #AboutUs .container {
+    padding-top: 0; /* Reset any container padding if needed */
+  }
+}
+
+/* Ensure consistent spacing on very small screens */
+@media screen and (max-width: 479px) {
+  #AboutUs.section {
+    padding-top: 50px !important; /* Same increased padding for smallest screens */
+  }
+} 

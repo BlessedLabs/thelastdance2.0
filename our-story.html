@@ -381,34 +381,7 @@
       
       menuContainer.appendChild(homeButton);
       
-      // Create close button
-      const closeButton = document.createElement('button');
-      closeButton.textContent = '✕';
-      
-      // Force close button styles
-      Object.assign(closeButton.style, {
-        position: 'absolute',
-        top: '20px',
-        right: '20px',
-        background: 'none',
-        border: 'none',
-        color: 'white',
-        fontSize: '24px',
-        cursor: 'pointer',
-        zIndex: '100000',
-        padding: '10px',
-        display: 'block'
-      });
-      
-      // Add onclick handler to close button
-      closeButton.setAttribute('onclick', `
-        document.getElementById('bl-mobile-menu-overlay').style.display = 'none';
-        document.querySelector('.menu-button, .w-nav-button').classList.remove('w--open');
-        document.body.style.overflow = ''; // Restore scrolling on body
-      `);
-      
       mobileMenuOverlay.appendChild(menuContainer);
-      mobileMenuOverlay.appendChild(closeButton);
       
       // Append menu to the body
       document.body.appendChild(mobileMenuOverlay);

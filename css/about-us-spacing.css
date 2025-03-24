@@ -1,0 +1,11 @@
+/* Increase spacing between hero section and About Us section */
+#AboutUs {
+  padding-top: 70px !important; /* Increased top padding */
+}
+
+/* Add more space for mobile devices */
+@media screen and (max-width: 767px) {
+  #AboutUs {
+    padding-top: 50px !important; /* Slightly less on mobile but still significant */
+  }
+} 

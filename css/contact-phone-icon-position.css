@@ -1,0 +1,24 @@
+/* Mobile Phone Icon Position Fix - Ensures no overlap with header image */
+
+/* Only apply these changes on mobile devices */
+@media screen and (max-width: 767px) {
+  /* Target specifically the phone icon in the contact section */
+  .icon-large.utility-margin-bottom-1rem.phone-icon {
+    position: relative;
+    top: 20px; /* Position 20px below the image edge */
+    left: 0; /* Maintain left alignment */
+    margin-top: 0; /* Reset any existing margin */
+  }
+  
+  /* Ensure the layout doesn't break when repositioning the icon */
+  #Contact .flex-horizontal.flex-vertical li:first-child {
+    padding-top: 20px; /* Add some padding to accommodate the repositioned icon */
+  }
+  
+  /* Prevent any other styling changes from affecting this specific fix */
+  .contact-image-container {
+    margin-bottom: 20px; /* Add explicit bottom margin to the image container */
+  }
+}
+
+/* Desktop styling remains unchanged */ 
