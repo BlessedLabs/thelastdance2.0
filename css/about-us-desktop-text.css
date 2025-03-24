@@ -1,0 +1,47 @@
+/* 
+ * About Us Desktop Text Size Enhancement
+ * Increases font size for the About Us description on desktop only 
+ */
+
+/* Apply larger font size for About Us description on desktop only */
+@media screen and (min-width: 768px) {
+  /* Target the subheading container in the About Us section */
+  #AboutUs .subheading {
+    text-align: left; /* Left align instead of center */
+    max-width: 100%; /* Allow full width of container */
+    padding: 0 20px; /* Add some padding on sides */
+  }
+  
+  /* Target the subheading text in the About Us section */
+  #AboutUs .subheading p {
+    font-size: 19px !important; /* Slightly smaller than before to fit more content */
+    line-height: 1.7 !important; /* Adjusted line height for readability */
+    letter-spacing: 0.2px; /* Subtle letter spacing improvement */
+    text-align: left; /* Ensure text is left-aligned */
+    margin: 0; /* Remove margins */
+  }
+  
+  /* Keep heading centered */
+  #AboutUs .heading {
+    text-align: center !important; /* Center the heading */
+    padding-left: 0; /* Remove padding */
+  }
+  
+  /* Additional enhancements for larger screens */
+  @media screen and (min-width: 1200px) {
+    #AboutUs .subheading {
+      max-width: 100%; /* Full width on large screens */
+      padding: 0 30px; /* Slightly more padding on larger screens */
+    }
+    
+    #AboutUs .subheading p {
+      font-size: 19px !important; /* Keep consistent size */
+      max-width: 100%; /* Allow text to use full width */
+    }
+    
+    /* Container adjustments */
+    #AboutUs .container {
+      max-width: 1400px; /* Wider container on large screens */
+    }
+  }
+} 

@@ -1,0 +1,30 @@
+/* Services section mobile bold headings fix */
+@media screen and (max-width: 767px) {
+  /* More specific selectors to target the h3 headings with h4-heading class */
+  h3.h4-heading strong, 
+  #Services h3.h4-heading strong,
+  .h4-heading strong {
+    font-weight: 900 !important; /* Force extra bold weight on mobile */
+    display: inline !important; /* Ensure display doesn't get changed */
+  }
+  
+  /* Target the heading elements directly */
+  h3.h4-heading,
+  #Services h3.h4-heading,
+  .h4-heading {
+    font-weight: bold !important; /* Force bold even without strong tags */
+  }
+  
+  /* Target specifically our services section headings directly */
+  section#Services .w-layout-grid h3.h4-heading {
+    font-weight: bold !important;
+  }
+  
+  /* Extremely specific selector as a fallback */
+  body section#Services .container .w-layout-grid .w-node-b39aee4d-bf31-f9a0-7887-5efbc71ad45a-f7700f37 h3.h4-heading,
+  body section#Services .container .w-layout-grid .w-node-b39aee4d-bf31-f9a0-7887-5efbc71ad466-f7700f37 h3.h4-heading,
+  body section#Services .container .w-layout-grid .w-node-b39aee4d-bf31-f9a0-7887-5efbc71ad472-f7700f37 h3.h4-heading,
+  body section#Services .container .w-layout-grid .w-node-b39aee4d-bf31-f9a0-7887-5efbc71ad47e-f7700f37 h3.h4-heading {
+    font-weight: bold !important;
+  }
+} 

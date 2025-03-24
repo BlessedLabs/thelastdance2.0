@@ -1,0 +1,56 @@
+/* 
+ * Mobile Navigation Enhancements
+ * Makes Blessed Labs and AI Studio text larger and centered on mobile devices
+ */
+
+/* Mobile-only navigation text enhancements */
+@media screen and (max-width: 767px) {
+  /* Make Blessed Labs logo text larger in navbar */
+  .navbar-wrapper .logo-text,
+  .navbar-wrapper .w-nav-brand .logo-text,
+  .navbar-brand-wrapper .logo-text {
+    font-size: 24px !important; /* Increase logo text size */
+    text-align: center !important;
+    display: block;
+    width: 100%;
+  }
+  
+  /* Make AI Studio text larger */
+  .navbar-wrapper .text-block-2.ai-studio-link,
+  .navbar-wrapper a[href="#AIStudio"] .text-block-2,
+  .navbar-wrapper .menu-link[href="#AIStudio"] .text-block-2,
+  .navbar-wrapper .menu-link[href="#ImageGenerator"] .text-block-2,
+  .navbar-wrapper .text-block-2 {
+    font-size: 18px !important; /* Increase AI Studio link size */
+    text-align: center !important;
+  }
+  
+  /* Center the navigation items container */
+  .navbar-wrapper .nav-menu,
+  .navbar-wrapper .w-nav-menu {
+    text-align: center !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Center individual navigation links */
+  .navbar-wrapper .nav-link,
+  .navbar-wrapper .menu-link {
+    text-align: center !important;
+    width: 100%;
+  }
+  
+  /* Ensure brand logo is properly sized and centered */
+  .w-nav-brand {
+    text-align: center !important;
+  }
+  
+  /* Target navigation text directly by ID if needed */
+  #ImageGenerator-link .text-block-2,
+  #AIStudio-link .text-block-2 {
+    font-size: 18px !important;
+    font-weight: bold !important;
+  }
+} 
