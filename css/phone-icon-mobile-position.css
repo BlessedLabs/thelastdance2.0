@@ -1,0 +1,15 @@
+/* Mobile-only adjustment for phone icon positioning */
+@media screen and (max-width: 767px) {
+  /* Target specifically the phone icon in the contact section */
+  #Contact .phone-icon {
+    transform: translateY(40px); /* Move down below the image */
+    position: relative; /* Keep in the document flow */
+    margin-top: 20px; /* Add some top margin */
+    margin-bottom: 10px; /* Add some bottom margin */
+  }
+  
+  /* Make sure the list item layout doesn't break */
+  #Contact ul li:first-child {
+    margin-top: 20px; /* Add space at the top of the first item */
+  }
+} 

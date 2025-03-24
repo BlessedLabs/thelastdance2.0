@@ -1,0 +1,55 @@
+/* 
+ * Our Story - Mobile Horizontal Scroll Fix
+ * Additional fixes specifically for the Our Story page on mobile
+ */
+
+@media screen and (max-width: 767px) {
+  /* Enhanced overflow prevention for Our Story page */
+  #OurStory {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+  }
+  
+  /* Fix grid layout on Our Story page */
+  #OurStory .w-layout-grid {
+    display: block !important; /* Convert to block for better mobile layout */
+    width: 100% !important;
+  }
+  
+  /* Ensure headings don't overflow */
+  #OurStory h2, 
+  #OurStory h3, 
+  #OurStory .heading, 
+  #OurStory .h4-heading {
+    font-size: 28px !important;
+    word-break: break-word !important;
+    hyphens: auto !important;
+    max-width: 100% !important;
+  }
+  
+  /* Fix for long words in paragraphs */
+  #OurStory p {
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+    word-break: break-word !important;
+    hyphens: auto !important;
+    max-width: 100% !important;
+  }
+  
+  /* Fix for potential margins causing overflow */
+  #OurStory .subheading,
+  #OurStory .w-layout-grid > div {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    width: 100% !important;
+  }
+  
+  /* Fix for potential image overflow */
+  #OurStory img {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+} 
