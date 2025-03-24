@@ -1,0 +1,16 @@
+/* 
+ * Our Story Page - Desktop Navigation Modification
+ * Purpose: Hide the Contact link in navigation for desktop view only
+ */
+
+@media screen and (min-width: 992px) {
+  /* Target the Our Story page specifically */
+  [data-wf-page="67d5bd502c2c35c3f7700f37"] .navbar-wrapper > div:nth-last-child(2) {
+    display: none !important;
+  }
+  
+  /* Ensure proper spacing for the remaining menu items */
+  [data-wf-page="67d5bd502c2c35c3f7700f37"] .navbar-wrapper > div {
+    margin-right: 28px; /* Slightly increased spacing */
+  }
+} 

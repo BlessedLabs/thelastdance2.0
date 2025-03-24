@@ -1,0 +1,18 @@
+/* 
+ * Services Section Mobile Spacing
+ * Adds a small gap between service items in the mobile view only
+ * This creates better visual separation between service cards without affecting desktop layout
+ */
+
+/* Only apply these styles on mobile devices */
+@media screen and (max-width: 767px) {
+  /* Target each service card in the services grid */
+  #Services .grid-layout.desktop-4-column > div {
+    margin-bottom: 20px !important; /* Add bottom margin to create spacing between cards */
+  }
+  
+  /* Remove the margin from the last card to avoid extra space at bottom of section */
+  #Services .grid-layout.desktop-4-column > div:last-child {
+    margin-bottom: 0 !important;
+  }
+} 

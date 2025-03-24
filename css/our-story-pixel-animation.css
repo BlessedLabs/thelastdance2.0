@@ -1,0 +1,47 @@
+/* 
+ * Our Story Pixel Playground Animation
+ * Adds the granite gradient effect to the Pixel Playground link in navigation
+ * Desktop version only - matches the styling in the navigation bar and footer
+ */
+
+/* Target the Pixel Playground link in the navigation - DESKTOP ONLY */
+@media screen and (min-width: 992px) {
+  /* Target specifically the Pixel Playground link in the navigation */
+  .navbar-wrapper a[href="#ImageGenerator"] .text-block-2,
+  .navbar-wrapper a[href="index.html#ImageGenerator"] .text-block-2 {
+    /* Apply the gradient background for text */
+    background: linear-gradient(-45deg, #1e5ef3, #4a00e0, #00d4ff, #1e5ef3);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent !important;
+    
+    /* Add the animation for the flowing effect */
+    animation: pixel-playground-gradient 6s ease-in-out infinite;
+    
+    /* Additional styling */
+    position: relative;
+    font-weight: 500;
+    transition: opacity 0.3s ease;
+  }
+  
+  /* Keep the animation when hovering but change opacity slightly */
+  .navbar-wrapper a[href="#ImageGenerator"]:hover .text-block-2,
+  .navbar-wrapper a[href="index.html#ImageGenerator"]:hover .text-block-2 {
+    color: transparent !important;
+    opacity: 0.9;
+  }
+
+  /* Gradient animation definition */
+  @keyframes pixel-playground-gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+} 
