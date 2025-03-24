@@ -63,6 +63,7 @@
     letter-spacing: 0.5px;
     color: #ffffff;
     margin-left: -10px; /* Move text 10% closer to the logo */
+    font-size: 28px; /* Increased from 26px to 28px - ONLY change is this font size */
   }
   
   /* ===== NAVIGATION LINKS ===== */

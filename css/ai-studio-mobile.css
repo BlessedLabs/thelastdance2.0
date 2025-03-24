@@ -1,29 +1,29 @@
 /* AI Studio subtitle styling */
 .ai-studio-subtitle {
-  display: none; /* Hidden by default (for desktop) */
-  font-size: 14px;
+  display: block; /* Show on desktop now */
+  font-size: 15.5px; /* Increased from 14px to 15.5px for desktop - just a tiny bit bigger */
   color: white;
   text-align: center;
-  margin-top: -2px;
+  margin-top: -6px; /* Reduced from -2px to -6px to move it closer to Blessed Labs */
   font-family: "Inter", sans-serif;
-  font-weight: 400;
+  font-weight: 700; /* Bold text on desktop */
   opacity: 0.9;
 }
 
-/* Only show the subtitle on mobile screens */
+/* Style the nav logo to be column layout also on desktop */
+.nav-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Only adjust specific styles for mobile screens */
 @media screen and (max-width: 991px) {
   .ai-studio-subtitle {
-    display: block; /* Show on mobile */
     font-size: 16.5px; /* Very slightly increased from 16px to 16.5px - just a hair bigger */
-    font-weight: 500; /* Made slightly bolder */
-  }
-  
-  /* Ensure proper spacing in mobile layout */
-  .nav-logo {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    font-weight: 700 !important; /* Changed from 500 to 700 to make it bold */
+    letter-spacing: 0.2px; /* Slight letter spacing for better readability with bold text */
   }
   
   /* Adjust spacing for the main logo text when subtitle is present */
