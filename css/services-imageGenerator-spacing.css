@@ -29,4 +29,13 @@
   #Services .w-layout-grid.grid-layout:last-child {
     margin-bottom: 25px; /* Moderate margin for better separation */
   }
+
+  /* Adjust AI Image Generator text size and width on mobile */
+  #ImageGenerator .heading-2:not(.pixel-playground) {
+    font-size: 1.65rem; /* Keeping the same size */
+    max-width: 50%; /* Significantly reduced from 65% to 50% to make it much narrower */
+    margin-left: auto;
+    margin-right: auto;
+    letter-spacing: -0.5px; /* Adding slight negative letter-spacing to tighten the text */
+  }
 }
