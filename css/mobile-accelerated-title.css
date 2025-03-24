@@ -1,0 +1,19 @@
+/* 
+ * Mobile-only Accelerated Prototyping Title Size Adjustment
+ * Makes the Accelerated Prototyping title slightly smaller on mobile
+ */
+
+@media screen and (max-width: 767px) {
+  /* Target the Accelerated Prototyping title specifically 
+     Using the fourth service box in the grid */
+  .w-layout-grid > div:nth-child(4) h3.h4-heading,
+  #w-node-_990bd4f2-58fc-e8c1-e827-1584b172c080-790076ba h3.h4-heading {
+    font-size: 1.18rem !important; /* Just slightly smaller than other titles */
+  }
+  
+  /* Target the strong element for extra precision */
+  .w-layout-grid > div:nth-child(4) h3.h4-heading strong,
+  #w-node-_990bd4f2-58fc-e8c1-e827-1584b172c080-790076ba h3.h4-heading strong {
+    font-size: 1.18rem !important; /* Match the heading size */
+  }
+} 

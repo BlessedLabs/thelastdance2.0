@@ -14,7 +14,7 @@
 @media screen and (max-width: 991px) {
   .ai-studio-subtitle {
     display: block; /* Show on mobile */
-    font-size: 16px; /* Increased from 14px to 16px */
+    font-size: 16.5px; /* Very slightly increased from 16px to 16.5px - just a hair bigger */
     font-weight: 500; /* Made slightly bolder */
   }
   
